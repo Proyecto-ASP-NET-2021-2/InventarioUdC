@@ -1,0 +1,31 @@
+﻿@model Inventario.GUI.Models.Parametros.ModeloCargaImagenProducto
+@{
+    ViewBag.Title = "UploadFile";
+}
+
+<h2>UploadFile</h2>
+@using (Html.BeginForm("UploadFile", "Espacio",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model =>model.Id)
+    <table>
+        <tr>
+            <td>
+                <label>
+                    Seleccionar Archivo
+                </label>
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Archivo, "", new { Type = "file" })
+            </td>
+            <td>
+                <input type="submit" value="Cargar Archivo" class="btn btn-primary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="=" 3>
+                <strong>@ViewBag.UploadFileMessage</strong>
+            </td>
+        </tr>
+    </table>
+}
+
