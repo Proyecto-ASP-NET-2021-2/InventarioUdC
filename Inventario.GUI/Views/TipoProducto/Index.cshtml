@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Inventario.GUI.ModeloBD.tb_tipoProducto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tipos de Productos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Registro", "Create", new { }, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.id }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

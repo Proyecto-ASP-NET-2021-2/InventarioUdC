@@ -11,7 +11,8 @@ namespace Inventario.GUI.ModeloBD
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class tb_producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,12 @@ namespace Inventario.GUI.ModeloBD
         }
     
         public int id { get; set; }
+
+        [DisplayName("Nombre")]
         public string nombre { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public string serial { get; set; }
+        
         public int id_marca { get; set; }
         public int id_categoria { get; set; }
         public int id_tipoProducto { get; set; }
