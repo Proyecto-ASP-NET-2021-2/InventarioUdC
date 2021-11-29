@@ -1,24 +1,36 @@
-﻿using System;
+﻿using Inventario.GUI.Helpers;
+using Inventario.GUI.Mapeadores.Producto;
+using Inventario.GUI.Models.Producto;
+using LogicaNegocio.DTO.Producto;
+using LogicaNegocio.Implementacion.Producto;
+using PagedList;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Inventario.GUI.ModeloBD;
 
 namespace Inventario.GUI.Controllers.Producto
 {
     public class ProductoController : Controller
     {
-        private InventarioBDEntities db = new InventarioBDEntities();
+        private ImplProductoLogica logica = new ImplProductoLogica();
 
         // GET: Producto
-        public ActionResult Index()
+        public ActionResult Index(int? page, String filtro = "")
         {
-            var tb_producto = db.tb_producto.Include(t => t.tb_categoria).Include(t => t.tb_espacio).Include(t => t.tb_marca).Include(t => t.tb_persona).Include(t => t.tb_tipoProducto);
-            return View(tb_producto.ToList());
+            int numPagina = page ?? 1;
+            int totalRegistros;
+            int registrosPorPagina = DatosGenerales.RegistrosPorPagina;
+            IEnumerable<ProductoDTO> listaDatos = logica.ListarRegistros(filtro, numPagina, registrosPorPagina, out totalRegistros);
+            MapeadorProductoGUI mapper = new MapeadorProductoGUI();
+            IEnumerable<ModeloProductoGUI> listaGUI = mapper.MapearTipo1Tipo2(listaDatos);
+            //var registrosPagina = listaGUI.ToPagedList(numPagina, registrosPorPagina);
+            var listaPagina = new StaticPagedList<ModeloProductoGUI>(listaGUI, numPagina, registrosPorPagina, totalRegistros);
+            return View(listaPagina);
         }
 
         // GET: Producto/Details/5
@@ -28,22 +40,19 @@ namespace Inventario.GUI.Controllers.Producto
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tb_producto tb_producto = db.tb_producto.Find(id);
-            if (tb_producto == null)
+            ProductoDTO ProductoDTO = logica.BuscarRegistro(id.Value);
+            if (ProductoDTO == null)
             {
                 return HttpNotFound();
             }
-            return View(tb_producto);
+            MapeadorProductoGUI mapper = new MapeadorProductoGUI();
+            ModeloProductoGUI modelo = mapper.MapearTipo1Tipo2(ProductoDTO);
+            return View(modelo);
         }
 
         // GET: Producto/Create
         public ActionResult Create()
         {
-            ViewBag.id_categoria = new SelectList(db.tb_categoria, "id", "nombre");
-            ViewBag.id_espacio = new SelectList(db.tb_espacio, "id", "nombre");
-            ViewBag.id_marca = new SelectList(db.tb_marca, "id", "nombre");
-            ViewBag.id_persona = new SelectList(db.tb_persona, "id", "nombres");
-            ViewBag.id_tipoProducto = new SelectList(db.tb_tipoProducto, "id", "nombre");
             return View();
         }
 
@@ -52,21 +61,17 @@ namespace Inventario.GUI.Controllers.Producto
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre,fechaRegistro,serial,id_marca,id_categoria,id_tipoProducto,id_espacio,id_persona")] tb_producto tb_producto)
+        public ActionResult Create(ModeloProductoGUI modelo)
         {
             if (ModelState.IsValid)
             {
-                db.tb_producto.Add(tb_producto);
-                db.SaveChanges();
+                MapeadorProductoGUI mapper = new MapeadorProductoGUI();
+                ProductoDTO ProductoDTO = mapper.MapearTipo2Tipo1(modelo);
+                logica.GuardarRegistro(ProductoDTO);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.id_categoria = new SelectList(db.tb_categoria, "id", "nombre", tb_producto.id_categoria);
-            ViewBag.id_espacio = new SelectList(db.tb_espacio, "id", "nombre", tb_producto.id_espacio);
-            ViewBag.id_marca = new SelectList(db.tb_marca, "id", "nombre", tb_producto.id_marca);
-            ViewBag.id_persona = new SelectList(db.tb_persona, "id", "nombres", tb_producto.id_persona);
-            ViewBag.id_tipoProducto = new SelectList(db.tb_tipoProducto, "id", "nombre", tb_producto.id_tipoProducto);
-            return View(tb_producto);
+            return View(modelo);
         }
 
         // GET: Producto/Edit/5
@@ -76,17 +81,14 @@ namespace Inventario.GUI.Controllers.Producto
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tb_producto tb_producto = db.tb_producto.Find(id);
-            if (tb_producto == null)
+            ProductoDTO ProductoDTO = logica.BuscarRegistro(id.Value);
+            if (ProductoDTO == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.id_categoria = new SelectList(db.tb_categoria, "id", "nombre", tb_producto.id_categoria);
-            ViewBag.id_espacio = new SelectList(db.tb_espacio, "id", "nombre", tb_producto.id_espacio);
-            ViewBag.id_marca = new SelectList(db.tb_marca, "id", "nombre", tb_producto.id_marca);
-            ViewBag.id_persona = new SelectList(db.tb_persona, "id", "nombres", tb_producto.id_persona);
-            ViewBag.id_tipoProducto = new SelectList(db.tb_tipoProducto, "id", "nombre", tb_producto.id_tipoProducto);
-            return View(tb_producto);
+            MapeadorProductoGUI mapper = new MapeadorProductoGUI();
+            ModeloProductoGUI modelo = mapper.MapearTipo1Tipo2(ProductoDTO);
+            return View(modelo);
         }
 
         // POST: Producto/Edit/5
@@ -94,20 +96,16 @@ namespace Inventario.GUI.Controllers.Producto
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nombre,fechaRegistro,serial,id_marca,id_categoria,id_tipoProducto,id_espacio,id_persona")] tb_producto tb_producto)
+        public ActionResult Edit(ModeloProductoGUI modelo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tb_producto).State = EntityState.Modified;
-                db.SaveChanges();
+                MapeadorProductoGUI mapper = new MapeadorProductoGUI();
+                ProductoDTO ProductoDTO = mapper.MapearTipo2Tipo1(modelo);
+                logica.EditarRegistro(ProductoDTO);
                 return RedirectToAction("Index");
             }
-            ViewBag.id_categoria = new SelectList(db.tb_categoria, "id", "nombre", tb_producto.id_categoria);
-            ViewBag.id_espacio = new SelectList(db.tb_espacio, "id", "nombre", tb_producto.id_espacio);
-            ViewBag.id_marca = new SelectList(db.tb_marca, "id", "nombre", tb_producto.id_marca);
-            ViewBag.id_persona = new SelectList(db.tb_persona, "id", "nombres", tb_producto.id_persona);
-            ViewBag.id_tipoProducto = new SelectList(db.tb_tipoProducto, "id", "nombre", tb_producto.id_tipoProducto);
-            return View(tb_producto);
+            return View(modelo);
         }
 
         // GET: Producto/Delete/5
@@ -117,12 +115,14 @@ namespace Inventario.GUI.Controllers.Producto
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tb_producto tb_producto = db.tb_producto.Find(id);
-            if (tb_producto == null)
+            ProductoDTO ProductoDTO = logica.BuscarRegistro(id.Value);
+            if (ProductoDTO == null)
             {
                 return HttpNotFound();
             }
-            return View(tb_producto);
+            MapeadorProductoGUI mapper = new MapeadorProductoGUI();
+            ModeloProductoGUI modelo = mapper.MapearTipo1Tipo2(ProductoDTO);
+            return View(modelo);
         }
 
         // POST: Producto/Delete/5
@@ -130,19 +130,26 @@ namespace Inventario.GUI.Controllers.Producto
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tb_producto tb_producto = db.tb_producto.Find(id);
-            db.tb_producto.Remove(tb_producto);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            bool respuesta = logica.EliminarRegistro(id);
+            if (respuesta)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ProductoDTO ProductoDTO = logica.BuscarRegistro(id);
+                if (ProductoDTO == null)
+                {
+                    return HttpNotFound();
+                }
+                MapeadorProductoGUI mapper = new MapeadorProductoGUI();
+                ViewBag.mensaje = Mensajes.mensajeErrorEliminar;
+                ModeloProductoGUI modelo = mapper.MapearTipo1Tipo2(ProductoDTO);
+                return View(modelo);
+            }
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
+
     }
 }
