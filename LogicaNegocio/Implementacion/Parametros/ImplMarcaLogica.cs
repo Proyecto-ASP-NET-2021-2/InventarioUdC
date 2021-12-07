@@ -83,5 +83,13 @@ namespace LogicaNegocio.Implementacion.Parametros
             Boolean res = this.accesoDatos.EliminarRegistro(id);
             return res;
         }
+
+        public IEnumerable<MarcaDTO> ListarRegistros()
+        {
+            var listado = this.accesoDatos.ListarRegistros();
+
+            MapeadorMarcaLogica mapeador = new MapeadorMarcaLogica();
+            return mapeador.MapearTipo1Tipo2(listado);
+        }
     }
 }

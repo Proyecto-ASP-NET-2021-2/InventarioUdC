@@ -1,7 +1,10 @@
 ﻿using Inventario.GUI.Helpers;
+using Inventario.GUI.Mapeadores.Parametros;
 using Inventario.GUI.Mapeadores.Producto;
+using Inventario.GUI.Models.Parametros;
 using Inventario.GUI.Models.Producto;
 using LogicaNegocio.DTO.Producto;
+using LogicaNegocio.Implementacion.Parametros;
 using LogicaNegocio.Implementacion.Producto;
 using PagedList;
 using System;
@@ -50,11 +53,40 @@ namespace Inventario.GUI.Controllers.Producto
             return View(modelo);
         }
 
-        // GET: Producto/Create
+        // GET: Vehiculo/Create
         public ActionResult Create()
         {
-            return View();
+            IEnumerable<ModeloMarcaGUI> listadoMarcas = obtenerListadoMarcas();
+            IEnumerable<ModeloTipoProductoGUI> listadoTipoProductos = obtenerListadoTipoProductos();
+
+            ModeloProductoGUI modelo = new ModeloProductoGUI();
+            modelo.ListaMarca = listadoMarcas;
+            modelo.ListaTipoProducto = listadoTipoProductos;
+
+            return View(modelo);
+
         }
+
+        private IEnumerable<ModeloMarcaGUI> obtenerListadoMarcas()
+        {
+            ImplMarcaLogica marca = new ImplMarcaLogica();
+            var listaMarcas = marca.ListarRegistros();
+            MapeadorMarcaGUI mapeador = new MapeadorMarcaGUI();
+
+            var listado = mapeador.MapearTipo1Tipo2(listaMarcas);
+            return listado;
+        }
+
+        private IEnumerable<ModeloTipoProductoGUI> obtenerListadoTipoProductos()
+        {
+            ImplTipoProductoLogica categoria = new ImplTipoProductoLogica();
+            var listaTipoProductos = categoria.ListarRegistros();
+            MapeadorTipoProductoGUI mapeador = new MapeadorTipoProductoGUI();
+
+            var listado = mapeador.MapearTipo1Tipo2(listaTipoProductos);
+            return listado;
+        }
+
 
         // POST: Producto/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 

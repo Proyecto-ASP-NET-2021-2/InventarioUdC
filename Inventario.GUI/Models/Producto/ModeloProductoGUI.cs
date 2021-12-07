@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventario.GUI.Models.Parametros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -138,6 +139,24 @@ namespace Inventario.GUI.Models.Producto
             get { return nombreEspacio; }
             set { nombreEspacio = value; }
         }
+
+        private IEnumerable<ModeloMarcaGUI> listaMarca;
+
+        public IEnumerable<ModeloMarcaGUI> ListaMarca
+        {
+            get { return listaMarca; }
+            set { listaMarca = value; }
+        }
+
+        private IEnumerable<ModeloTipoProductoGUI> listaTipoProducto;
+
+        public IEnumerable<ModeloTipoProductoGUI> ListaTipoProducto
+        {
+            get { return listaTipoProducto; }
+            set { listaTipoProducto = value; }
+        }
+
+        
 
     }
 }

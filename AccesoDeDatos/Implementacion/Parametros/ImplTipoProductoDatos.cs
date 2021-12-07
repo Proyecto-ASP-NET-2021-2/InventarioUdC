@@ -134,5 +134,24 @@ namespace AccesoDeDatos.Implementacion.Parametros
             }
         }
 
+        public IEnumerable<TipoProductoDbModel> ListarRegistros()
+        {
+            var lista = new List<TipoProductoDbModel>();
+
+            using (InventarioBDEntities bd = new InventarioBDEntities())
+            {
+
+                //lista = bd.tb_marca.Where(x => x.nombre.Contains(filtro)).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
+                var listaDatos = (from m in bd.tb_tipoProducto
+
+                                  select m).ToList();
+
+
+                lista = new MapeadorTipoProductoDatos().MapearTipo1Tipo2(listaDatos).ToList();
+            }
+            return lista;
+
+        }
+
     }
 }
