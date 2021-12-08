@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Parametros\SedeController.cs" />
     <Compile Include="Controllers\Parametros\TipoProductoController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
     <Compile Include="Controllers\Producto\ProductoController.cs" />
