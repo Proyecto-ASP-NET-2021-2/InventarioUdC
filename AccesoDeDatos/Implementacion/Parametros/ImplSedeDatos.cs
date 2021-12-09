@@ -34,6 +34,17 @@ namespace AccesoDeDatos.Implementacion.Parametros
             return lista;
         }
 
+        public IEnumerable<SedeDbModel> ListarRegistrosReporte()
+        {
+            var lista = new List<SedeDbModel>();
+            using (InventarioBDEntities bd = new InventarioBDEntities())
+            {
+                var listaDatos = (from m in bd.tb_sede
+                                  select m).ToList();
+                lista = new MapeadorSedeDatos().MapearTipo1Tipo2(listaDatos).ToList();
+            }
+            return lista;
+        }
 
 
         /// <summary>

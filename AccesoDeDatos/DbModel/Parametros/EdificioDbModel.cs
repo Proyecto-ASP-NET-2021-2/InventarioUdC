@@ -37,7 +37,14 @@ namespace AccesoDeDatos.DbModel.Edificio
             set { idSede = value; }
         }
 
-        
+
+        private string nombreSede;
+
+        public string NombreSede
+        {
+            get { return nombreSede; }
+            set { nombreSede = value; }
+        }
 
 
 

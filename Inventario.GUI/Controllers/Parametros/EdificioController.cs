@@ -1,8 +1,11 @@
 ﻿using Inventario.GUI.Helpers;
 using Inventario.GUI.Mapeadores.Edificio;
+using Inventario.GUI.Mapeadores.Parametros;
 using Inventario.GUI.Models.Edificio;
 using LogicaNegocio.DTO.Edificio;
+using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.Implementacion.Edificio;
+using LogicaNegocio.Implementacion.Parametros;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -53,7 +56,17 @@ namespace Inventario.GUI.Controllers.Edificio
         // GET: Edificio/Create
         public ActionResult Create()
         {
-            return View();
+            ModeloEdificioGUI modelo = new ModeloEdificioGUI();
+            ObtenerListadoSedes(modelo);
+            return View(modelo);
+        }
+
+        private void ObtenerListadoSedes(ModeloEdificioGUI modelo)
+        {
+            ImplSedeLogica logicaSede = new ImplSedeLogica();
+            IEnumerable<SedeDTO> listaDTO = logicaSede.ListarRegistrosReporte();
+            MapeadorSedeGUI mapeador = new MapeadorSedeGUI();
+            modelo.ListaSedes = mapeador.MapearTipo1Tipo2(listaDTO);
         }
 
         // POST: Edificio/Create
@@ -88,6 +101,7 @@ namespace Inventario.GUI.Controllers.Edificio
             }
             MapeadorEdificioGUI mapper = new MapeadorEdificioGUI();
             ModeloEdificioGUI modelo = mapper.MapearTipo1Tipo2(EdificioDTO);
+            ObtenerListadoSedes(modelo);
             return View(modelo);
         }
 

@@ -13,7 +13,8 @@ namespace LogicaNegocio.Mapeadores.Edificio
             {
                 Id = entrada.Id,
                 Nombre = entrada.Nombre,
-                IdSede = entrada.IdSede
+                IdSede = entrada.IdSede,
+                NombreSede = entrada.NombreSede
             };
         }
 

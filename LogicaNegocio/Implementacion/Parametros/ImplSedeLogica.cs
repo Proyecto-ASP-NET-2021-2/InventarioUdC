@@ -34,16 +34,15 @@ namespace LogicaNegocio.Implementacion.Parametros
             MapeadorSedeLogica mapeador = new MapeadorSedeLogica();
             return mapeador.MapearTipo1Tipo2(listado);
         }
-        /*
+        
         public IEnumerable<SedeDTO> ListarRegistrosReporte()
         {
             //int totalRegistrosLogica = 0;
             var listado = this.accesoDatos.ListarRegistrosReporte();
-            //totalRegistros = totalRegistrosLogica;
             MapeadorSedeLogica mapeador = new MapeadorSedeLogica();
             return mapeador.MapearTipo1Tipo2(listado);
         }
-        */
+        
         
 
         /// <summary>

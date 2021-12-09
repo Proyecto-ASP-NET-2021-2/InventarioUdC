@@ -13,7 +13,8 @@ namespace AccesoDeDatos.Mapeadores.Edificio
             {
                 Id = entrada.id,
                 Nombre = entrada.nombre,
-                IdSede = entrada.id_sede
+                IdSede = entrada.id_sede,
+                NombreSede = entrada.tb_sede.nombre
             };
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventario.GUI.Models.Parametros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -31,7 +32,8 @@ namespace Inventario.GUI.Models.Edificio
         
 
         private int idSede;
-        
+
+        [DisplayName("Sede")]
         public int IdSede
         {
             get { return idSede; }
@@ -49,7 +51,15 @@ namespace Inventario.GUI.Models.Edificio
             set { nombreSede = value; }
         }
 
-        
+        private IEnumerable<ModeloSedeGUI> modeloSedeGUIs;
+
+        public IEnumerable<ModeloSedeGUI> ListaSedes
+        {
+            get { return modeloSedeGUIs; }
+            set { modeloSedeGUIs = value; }
+        }
+
+
 
     }
 }
