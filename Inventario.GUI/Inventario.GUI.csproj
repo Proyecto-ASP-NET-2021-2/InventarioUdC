@@ -144,7 +144,9 @@
     </Compile>
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensajes.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorSedeGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoGUI.cs" />
+    <Compile Include="Models\Parametros\ModeloSedeGUI.cs" />
     <Compile Include="Models\Producto\ModeloProductoGUI.cs" />
     <Compile Include="Mapeadores\MapeadorBaseGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaGUI.cs" />
@@ -209,6 +211,11 @@
     <Content Include="Views\Shared\_FooterPagedList.cshtml" />
     <Content Include="Views\Shared\_Mensajes.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Sede\Create.cshtml" />
+    <Content Include="Views\Sede\Delete.cshtml" />
+    <Content Include="Views\Sede\Details.cshtml" />
+    <Content Include="Views\Sede\Edit.cshtml" />
+    <Content Include="Views\Sede\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

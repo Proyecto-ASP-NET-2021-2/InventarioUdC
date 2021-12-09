@@ -50,13 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbModel\Parametros\SedeDbModel.cs" />
     <Compile Include="DbModel\Parametros\TipoProductoDbModel.cs" />
     <Compile Include="DbModel\Parametros\MarcaDbModel.cs" />
     <Compile Include="DbModel\Producto\ProductoDbModel.cs" />
+    <Compile Include="Implementacion\Parametros\ImplSedeDatos.cs" />
     <Compile Include="Implementacion\Parametros\ImplTipoProductoDatos.cs" />
     <Compile Include="Implementacion\Parametros\ImplMarcaDatos.cs" />
     <Compile Include="Implementacion\Vehiculo\ImplVehiculoDatos.cs" />
     <Compile Include="Mapeadores\MapeadorBaseDatos.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorSedeDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaDatos.cs" />
     <Compile Include="Mapeadores\Vehiculo\MapeadorProductoDatos.cs" />

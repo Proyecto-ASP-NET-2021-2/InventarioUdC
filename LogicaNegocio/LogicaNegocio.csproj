@@ -41,13 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Parametros\SedeDTO.cs" />
     <Compile Include="DTO\Parametros\MarcaDTO.cs" />
     <Compile Include="DTO\Parametros\TipoProductoDTO.cs" />
     <Compile Include="DTO\Producto\ProductoDTO.cs" />
+    <Compile Include="Implementacion\Parametros\ImplSedeLogica.cs" />
     <Compile Include="Implementacion\Parametros\ImplTipoProductoLogica.cs" />
     <Compile Include="Implementacion\Parametros\ImplMarcaLogica.cs" />
     <Compile Include="Implementacion\Producto\ImplProductoLogica.cs" />
     <Compile Include="Mapeadores\MapeadorBaseLogica.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorSedeLogica.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoLogica.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaLogica.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoLogica.cs" />
