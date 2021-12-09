@@ -35,6 +35,14 @@ namespace LogicaNegocio.Implementacion.Edificio
             return mapeador.MapearTipo1Tipo2(listado);
         }
 
+        public IEnumerable<EdificioDTO> ListarRegistrosReporte()
+        {
+            //int totalRegistrosLogica = 0;
+            var listado = this.accesoDatos.ListarRegistrosReporte();
+            MapeadorEdificioLogica mapeador = new MapeadorEdificioLogica();
+            return mapeador.MapearTipo1Tipo2(listado);
+        }
+
         /// <summary>
         /// 
         /// </summary>

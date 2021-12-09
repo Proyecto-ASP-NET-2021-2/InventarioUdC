@@ -34,6 +34,18 @@ namespace AccesoDeDatos.Implementacion.Edificio
             return lista;
         }
 
+        public IEnumerable<EdificioDbModel> ListarRegistrosReporte()
+        {
+            var lista = new List<EdificioDbModel>();
+            using (InventarioBDEntities bd = new InventarioBDEntities())
+            {
+                var listaDatos = (from m in bd.tb_edificio
+                                  select m).ToList();
+                lista = new MapeadorEdificioDatos().MapearTipo1Tipo2(listaDatos).ToList();
+            }
+            return lista;
+        }
+
         /// <summary>
         /// Método para almacenar un registro
         /// </summary>

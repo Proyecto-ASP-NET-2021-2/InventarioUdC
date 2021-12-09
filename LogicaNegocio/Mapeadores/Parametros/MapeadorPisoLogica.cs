@@ -13,7 +13,8 @@ namespace LogicaNegocio.Mapeadores.Piso
             {
                 Id = entrada.Id,
                 Nombre = entrada.Nombre,
-                IdEdificio = entrada.IdEdificio
+                IdEdificio = entrada.IdEdificio,
+                NombreEdificio = entrada.NombreEdificio
             };
         }
 
@@ -31,7 +32,8 @@ namespace LogicaNegocio.Mapeadores.Piso
             {
                 Id = entrada.Id,
                 Nombre = entrada.Nombre,
-                IdEdificio = entrada.IdEdificio
+                IdEdificio = entrada.IdEdificio,
+                NombreEdificio = entrada.NombreEdificio
             };
         }
 

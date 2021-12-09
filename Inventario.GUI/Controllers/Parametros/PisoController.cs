@@ -1,7 +1,10 @@
 ﻿using Inventario.GUI.Helpers;
+using Inventario.GUI.Mapeadores.Edificio;
 using Inventario.GUI.Mapeadores.Piso;
 using Inventario.GUI.Models.Piso;
+using LogicaNegocio.DTO.Edificio;
 using LogicaNegocio.DTO.Piso;
+using LogicaNegocio.Implementacion.Edificio;
 using LogicaNegocio.Implementacion.Piso;
 using PagedList;
 using System;
@@ -53,7 +56,17 @@ namespace Inventario.GUI.Controllers.Piso
         // GET: Piso/Create
         public ActionResult Create()
         {
-            return View();
+            ModeloPisoGUI modelo = new ModeloPisoGUI();
+            ObtenerListadoEdificios(modelo);
+            return View(modelo);
+        }
+
+        private void ObtenerListadoEdificios(ModeloPisoGUI modelo)
+        {
+            ImplEdificioLogica logicaEdificio = new ImplEdificioLogica();
+            IEnumerable<EdificioDTO> listaDTO = logicaEdificio.ListarRegistrosReporte();
+            MapeadorEdificioGUI mapeador = new MapeadorEdificioGUI();
+            modelo.ListadoEdificios = mapeador.MapearTipo1Tipo2(listaDTO);
         }
 
         // POST: Piso/Create
@@ -88,6 +101,7 @@ namespace Inventario.GUI.Controllers.Piso
             }
             MapeadorPisoGUI mapper = new MapeadorPisoGUI();
             ModeloPisoGUI modelo = mapper.MapearTipo1Tipo2(PisoDTO);
+            ObtenerListadoEdificios(modelo);
             return View(modelo);
         }
 

@@ -13,7 +13,8 @@ namespace AccesoDeDatos.Mapeadores.Piso
             {
                 Id = entrada.id,
                 Nombre = entrada.nombre,
-                IdEdificio = entrada.id_edificio
+                IdEdificio = entrada.id_edificio,
+                NombreEdificio = entrada.tb_edificio.nombre
             };
         }
 
@@ -32,6 +33,8 @@ namespace AccesoDeDatos.Mapeadores.Piso
                 id = entrada.Id,
                 nombre = entrada.Nombre,
                 id_edificio = entrada.IdEdificio
+                
+                
             };
         }
 

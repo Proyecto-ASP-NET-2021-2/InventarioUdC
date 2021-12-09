@@ -12,7 +12,8 @@ namespace Inventario.GUI.Mapeadores.Piso
             {
                 Id = entrada.Id,
                 Nombre = entrada.Nombre,
-                IdEdificio = entrada.IdEdificio
+                IdEdificio = entrada.IdEdificio,
+                NombreEdificio = entrada.NombreEdificio
             };
         }
 
@@ -30,7 +31,8 @@ namespace Inventario.GUI.Mapeadores.Piso
             {
                 Id = entrada.Id,
                 Nombre = entrada.Nombre,
-                IdEdificio = entrada.IdEdificio
+                IdEdificio = entrada.IdEdificio,
+                NombreEdificio = entrada.NombreEdificio
             };
         }
 

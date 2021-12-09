@@ -36,7 +36,15 @@ namespace LogicaNegocio.DTO.Piso
             set { idEdificio = value; }
         }
 
-        
+        private String nombreEdificio;
+
+        public String NombreEdificio
+        {
+            get { return nombreEdificio; }
+            set { nombreEdificio = value; }
+        }
+
+
 
 
     }
