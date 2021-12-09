@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Parametros\EdificioController.cs" />
     <Compile Include="Controllers\Parametros\SedeController.cs" />
     <Compile Include="Controllers\Parametros\TipoProductoController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
@@ -144,8 +145,10 @@
     </Compile>
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensajes.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorEdificioGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorSedeGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoGUI.cs" />
+    <Compile Include="Models\Parametros\ModeloEdificioGUI.cs" />
     <Compile Include="Models\Parametros\ModeloSedeGUI.cs" />
     <Compile Include="Models\Producto\ModeloProductoGUI.cs" />
     <Compile Include="Mapeadores\MapeadorBaseGUI.cs" />
@@ -216,6 +219,11 @@
     <Content Include="Views\Sede\Details.cshtml" />
     <Content Include="Views\Sede\Edit.cshtml" />
     <Content Include="Views\Sede\Index.cshtml" />
+    <Content Include="Views\Edificio\Create.cshtml" />
+    <Content Include="Views\Edificio\Delete.cshtml" />
+    <Content Include="Views\Edificio\Details.cshtml" />
+    <Content Include="Views\Edificio\Edit.cshtml" />
+    <Content Include="Views\Edificio\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
