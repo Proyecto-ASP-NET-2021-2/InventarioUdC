@@ -151,11 +151,14 @@
     <Compile Include="Mapeadores\MapeadorBaseGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorFotoCategoriaGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioGUI.cs" />
+    <Compile Include="Mapeadores\Parametros\Espacio\MapeadorFotoEspacioGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Fotos\MapeadorFotosProductoGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Fotos\MapeadorFotosGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaGUI.cs" />
     <Compile Include="Models\Parametros\Categoria\ModeloFotoCategoriaGUI.cs" />
+    <Compile Include="Models\Parametros\Espacio\ModeloFotosEspacioGUI.cs" />
     <Compile Include="Models\Parametros\Fotos\ModeloFotosProductoGUI - Copia.cs" />
+    <Compile Include="Models\Parametros\ModeloCargaImagenEspacio.cs" />
     <Compile Include="Models\Parametros\ModeloCargaImagenProducto.cs" />
     <Compile Include="Models\Parametros\Espacio\ModeloEspacioGUI.cs" />
     <Compile Include="Models\Parametros\Fotos\ModeloFotosGUI.cs" />

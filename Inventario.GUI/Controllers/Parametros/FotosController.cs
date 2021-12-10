@@ -163,7 +163,7 @@ namespace Inventario.GUI.Controllers.Parametros
 
 
         }
-        //hay que cambiar por ModeloProductoGUI ***********************************************************
+        //hay que cambiar por ModeloproductoGUI ***********************************************************
         private IEnumerable<ModeloCategoriaGUI> obtenerListadoProductos()
         {
             ImplCategoriaLogica categoria = new ImplCategoriaLogica();
@@ -186,7 +186,7 @@ namespace Inventario.GUI.Controllers.Parametros
 
         private ModeloCargaImagenProducto CrearModeloCargarImagenProducto(int? id)
         {
-            IEnumerable<fotosProductoDTO> listaDto = acceso.ListarFotosVehiculoPorId(id.Value);
+            IEnumerable<fotosProductoDTO> listaDto = acceso.ListarFotosProductosPorId(id.Value);
             MapeadorFotosProductoGUI mapeador = new MapeadorFotosProductoGUI();
             IEnumerable<ModeloFotosProductoGUI> listaFotos = mapeador.MapearTipo1Tipo2(listaDto);
             if (listaFotos == null)

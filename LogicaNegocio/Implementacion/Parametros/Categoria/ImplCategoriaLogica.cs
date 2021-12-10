@@ -65,5 +65,18 @@ namespace LogicaNegocio.Implementacion.Parametros.Categoria
             bool res = this.accesoDatos.guardarFotoProducto(dbModel);
             return res;
         }
+        public IEnumerable<fotoCategoriaDTO> ListarFotosProductosPorId(int idProducto)
+        {
+
+            IEnumerable<fotoCategoriaDbModel> listaDbModel = this.accesoDatos.ListarProductosPorId(idProducto);
+            MapeadorFotoCategoriaLogica mapeador = new MapeadorFotoCategoriaLogica();
+            IEnumerable<fotoCategoriaDTO> lista = mapeador.MapearTipo1Tipo2(listaDbModel);
+            return lista;
+        }
+        public Boolean EliminarRegistroFoto(int id)
+        {
+            Boolean res = this.accesoDatos.EliminarRegistroFoto(id);
+            return res;
+        }
     }
 }

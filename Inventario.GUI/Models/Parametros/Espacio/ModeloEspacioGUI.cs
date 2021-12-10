@@ -40,5 +40,14 @@ namespace Inventario.GUI.Models.Parametros
             get { return nombrePiso; }
             set { nombrePiso = value; }
         }
+
+        //aqui hay que reemplazar ModelCategoriaGUI por ModeloPisosGUI
+        private IEnumerable<ModeloEspacioGUI> listaPisos;
+
+        public IEnumerable<ModeloEspacioGUI> ListaPisos
+        {
+            get { return listaPisos; }
+            set { listaPisos = value; }
+        }
     }
 }

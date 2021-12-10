@@ -1,4 +1,4 @@
-﻿@model Inventario.GUI.Models.Parametros.ModeloCargaImagenProducto
+﻿@model Inventario.GUI.Models.Parametros.ModeloCargaImagenEspacio
 @{
     ViewBag.Title = "UploadFile";
 }
@@ -6,7 +6,7 @@
 <h2>UploadFile</h2>
 @using (Html.BeginForm("UploadFile", "Espacio",FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.HiddenFor(model =>model.Id)
+   
     <table>
         <tr>
             <td>

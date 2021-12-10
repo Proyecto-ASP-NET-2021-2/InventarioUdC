@@ -23,6 +23,14 @@ namespace Inventario.GUI.Models.Parametros
             get { return nombre; }
             set { nombre = value; }
         }
-        
+
+        private IEnumerable<ModeloCategoriaGUI> listaProducto;
+
+        public IEnumerable<ModeloCategoriaGUI> ListaProducto
+        {
+            get { return listaProducto; }
+            set { listaProducto = value; }
+        }
+
     }
 }

@@ -65,10 +65,10 @@ namespace LogicaNegocio.Implementacion.Parametros
             bool res = this.accesoDatos.guardarFotoProducto(dbModel);
             return res;
         }
-        public IEnumerable<fotosProductoDTO> ListarFotosVehiculoPorId(int idVehiculo)
+        public IEnumerable<fotosProductoDTO> ListarFotosProductosPorId(int idProducto)
         {
 
-            IEnumerable<fotoProductoDbModel> listaDbModel = this.accesoDatos.ListarFotosVehiculoPorId(idVehiculo);
+            IEnumerable<fotoProductoDbModel> listaDbModel = this.accesoDatos.ListarFotosProductoPorId(idProducto);
             MapeadorFotosProductoLogica mapeador = new MapeadorFotosProductoLogica();
             IEnumerable<fotosProductoDTO> lista = mapeador.MapearTipo1Tipo2(listaDbModel);
             return lista;

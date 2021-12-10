@@ -117,6 +117,31 @@ namespace AccesoDeDatos.Implementacion.Parametros
             }
         }
 
+        public bool EliminarRegistroFoto(int id)
+        {
+            try
+            {
+                using (InventarioBDEntities bd = new InventarioBDEntities())
+                {
+                    // verificación de la existencia de un registro con el mismo id
+                    tb_foto registro = bd.tb_foto.Find(id);
+                    if (registro == null)
+                    {
+                        return false;
+                    }
+                    //registro.estado = false;
+
+                    bd.Entry(registro).State = EntityState.Modified;
+                    bd.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public bool guardarFotoProducto(fotoCategoriaDbModel dbModel)
         {
             try
@@ -138,6 +163,19 @@ namespace AccesoDeDatos.Implementacion.Parametros
                 throw e;
             }
 
+        }
+        public IEnumerable<fotoCategoriaDbModel> ListarProductosPorId(int id)
+        {
+            using (InventarioBDEntities bd = new InventarioBDEntities())
+            {
+                //var lista = bd.tb_espacios.Where(x => x.id_vehiculo == id).ToList();
+                var lista = (from f in bd.tb_foto
+                             where f.id_producto == id
+                             select f).ToList();
+                MapeadorFotoCategoriaDatos mapeador = new MapeadorFotoCategoriaDatos();
+                IEnumerable<fotoCategoriaDbModel> listaDbModel = mapeador.MapearTipo1Tipo2(lista);
+                return listaDbModel;
+            }
         }
     }
 }

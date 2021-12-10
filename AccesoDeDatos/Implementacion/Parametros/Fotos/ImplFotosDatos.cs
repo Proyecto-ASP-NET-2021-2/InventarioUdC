@@ -151,7 +151,7 @@ namespace LogicaNegocio.Implementacion.Parametros
             }
 
         }
-        public IEnumerable<fotoProductoDbModel> ListarFotosVehiculoPorId(int id)
+        public IEnumerable<fotoProductoDbModel> ListarFotosProductoPorId(int id)
         {
             using (InventarioBDEntities bd = new InventarioBDEntities())
             {

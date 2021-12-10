@@ -51,9 +51,21 @@ namespace Inventario.GUI.Controllers.Parametros
         // GET: Categoria/Create
         public ActionResult Create()
         {
-            return View();
+            //hay que cambira por producto ****************************************************************
+            IEnumerable<ModeloCategoriaGUI> listado = obtenerListadoProductos();
+            ModeloFotosGUI modelo = new ModeloFotosGUI();
+            modelo.ListaProducto = listado;
+            return View(modelo);
         }
 
+        private IEnumerable<ModeloCategoriaGUI> obtenerListadoProductos()
+        {
+            ImplCategoriaLogica producto = new ImplCategoriaLogica();
+            var listaProductos = producto.ListarRegistros();
+            MapeadorCategoriaGUI mapeador = new MapeadorCategoriaGUI();
+            var listado = mapeador.MapearTipo1Tipo2(listaProductos);
+            return listado;
+        }
         // POST: Categoria/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -155,6 +167,23 @@ namespace Inventario.GUI.Controllers.Parametros
             return View();
         }
 
+        private ModeloCargaImagenProducto CrearModeloCargarImagenProducto(int? id)
+        {
+            IEnumerable<fotoCategoriaDTO> listaDto = acceso.ListarFotosProductosPorId(id.Value);
+            MapeadorFotoCategoriaGUI mapeador = new MapeadorFotoCategoriaGUI();
+            IEnumerable<ModeloFotoCategoriaGUI> listaProducto = mapeador.MapearTipo1Tipo2(listaDto);
+            if (listaProducto == null)
+            {
+                listaProducto = new List<ModeloFotoCategoriaGUI>();
+            }
+            ModeloCargaImagenProducto modelo = new ModeloCargaImagenProducto()
+            {
+                Id = id.Value,
+                ListadoImagenesProducto = (IEnumerable<ModeloFotosProductoGUI>)listaProducto
+            };
+            return modelo;
+        }
+
         [HttpPost]
         public ActionResult UploadFile(ModeloCargaImagenProducto modelo)
         {
@@ -176,6 +205,7 @@ namespace Inventario.GUI.Controllers.Parametros
 
                 //guardar nombre de archivo base de datos
                     acceso.guardarNombreFoto(dto);
+                    ModeloCargaImagenProducto modeloview = CrearModeloCargarImagenProducto(modelo.Id);
                     ViewBag.UploadFileMessage = "Archivo cargado correctamente";
                     return View();
                 }
