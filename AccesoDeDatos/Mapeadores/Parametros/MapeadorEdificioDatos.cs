@@ -1,9 +1,8 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
-using AccesoDeDatos.DbModel.Edificio;
 using AccesoDeDatos.ModeloDeDatos;
 using System.Collections.Generic;
 
-namespace AccesoDeDatos.Mapeadores.Edificio
+namespace AccesoDeDatos.Mapeadores.Parametros
 {
     public class MapeadorEdificioDatos : MapeadorBaseDatos<tb_edificio, EdificioDbModel>
     {

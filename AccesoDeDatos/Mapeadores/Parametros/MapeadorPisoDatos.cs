@@ -1,9 +1,9 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
-using AccesoDeDatos.DbModel.Piso;
+
 using AccesoDeDatos.ModeloDeDatos;
 using System.Collections.Generic;
 
-namespace AccesoDeDatos.Mapeadores.Piso
+namespace AccesoDeDatos.Mapeadores.Parametros
 {
     public class MapeadorPisoDatos : MapeadorBaseDatos<tb_piso, PisoDbModel>
     {

@@ -1,9 +1,9 @@
-﻿using AccesoDeDatos.DbModel.Piso;
+﻿using AccesoDeDatos.DbModel.Parametros;
 using AccesoDeDatos.ModeloDeDatos;
-using LogicaNegocio.DTO.Piso;
+using LogicaNegocio.DTO.Parametros;
 using System.Collections.Generic;
 
-namespace LogicaNegocio.Mapeadores.Piso
+namespace LogicaNegocio.Mapeadores.Parametros
 { 
     public class MapeadorPisoLogica : MapeadorBaseLogica<PisoDbModel, PisoDTO>
     {

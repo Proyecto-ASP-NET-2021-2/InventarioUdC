@@ -1,4 +1,4 @@
-﻿using Inventario.GUI.Models.Edificio;
+﻿using Inventario.GUI.Models.Parametros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventario.GUI.Models.Piso
+namespace Inventario.GUI.Models.Parametros
 {
     public class ModeloPisoGUI
     {

@@ -1,9 +1,9 @@
-﻿using AccesoDeDatos.DbModel.Edificio;
+﻿using AccesoDeDatos.DbModel.Parametros;
 using AccesoDeDatos.ModeloDeDatos;
-using LogicaNegocio.DTO.Edificio;
+using LogicaNegocio.DTO.Parametros;
 using System.Collections.Generic;
 
-namespace LogicaNegocio.Mapeadores.Edificio
+namespace LogicaNegocio.Mapeadores.Parametros
 { 
     public class MapeadorEdificioLogica : MapeadorBaseLogica<EdificioDbModel, EdificioDTO>
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace LogicaNegocio.DTO.Edificio
+namespace LogicaNegocio.DTO.Parametros
 {
     public class EdificioDTO
     {

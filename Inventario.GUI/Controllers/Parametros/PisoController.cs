@@ -1,11 +1,8 @@
 ﻿using Inventario.GUI.Helpers;
-using Inventario.GUI.Mapeadores.Edificio;
-using Inventario.GUI.Mapeadores.Piso;
-using Inventario.GUI.Models.Piso;
-using LogicaNegocio.DTO.Edificio;
-using LogicaNegocio.DTO.Piso;
-using LogicaNegocio.Implementacion.Edificio;
-using LogicaNegocio.Implementacion.Piso;
+using Inventario.GUI.Mapeadores.Parametros;
+using Inventario.GUI.Models.Parametros;
+using LogicaNegocio.DTO.Parametros;
+using LogicaNegocio.Implementacion.Parametros;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -16,7 +13,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Inventario.GUI.Controllers.Piso
+namespace Inventario.GUI.Controllers.Parametros
 {
     public class PisoController : Controller
     {

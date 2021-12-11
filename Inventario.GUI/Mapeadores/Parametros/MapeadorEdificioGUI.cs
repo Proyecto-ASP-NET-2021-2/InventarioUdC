@@ -1,8 +1,8 @@
-﻿using Inventario.GUI.Models.Edificio;
-using LogicaNegocio.DTO.Edificio;
+﻿using Inventario.GUI.Models.Parametros;
+using LogicaNegocio.DTO.Parametros;
 using System.Collections.Generic;
 
-namespace Inventario.GUI.Mapeadores.Edificio
+namespace Inventario.GUI.Mapeadores.Parametros
 { 
     public class MapeadorEdificioGUI : MapeadorBaseGUI<EdificioDTO, ModeloEdificioGUI>
     {

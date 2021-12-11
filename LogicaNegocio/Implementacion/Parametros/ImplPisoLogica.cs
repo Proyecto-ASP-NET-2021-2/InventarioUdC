@@ -1,14 +1,14 @@
-﻿using AccesoDeDatos.DbModel.Piso;
-using AccesoDeDatos.Implementacion.Piso;
-using LogicaNegocio.DTO.Piso;
-using LogicaNegocio.Mapeadores.Piso;
+﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.Implementacion.Parametros;
+using LogicaNegocio.DTO.Parametros;
+using LogicaNegocio.Mapeadores.Parametros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaNegocio.Implementacion.Piso
+namespace LogicaNegocio.Implementacion.Parametros
 {
     public class ImplPisoLogica
     {
@@ -69,29 +69,6 @@ namespace LogicaNegocio.Implementacion.Piso
             return res;
         }
 
-        /*
-        public Boolean EliminarRegistroFoto(int id)
-        {
-            Boolean res = this.accesoDatos.EliminarRegistroFoto(id);
-            return res;
-        }
 
-        public Boolean GuardarNombreFoto(FotoPisoDTO dto)
-        {
-            MapeadorFotoPisoLogica mapeador = new MapeadorFotoPisoLogica();
-            FotoPisoDbModel dbModel = mapeador.MapearTipo2Tipo1(dto);
-            bool res = this.accesoDatos.GuardarFotoPiso(dbModel);
-            return res;
-        }
-
-        public IEnumerable<FotoPisoDTO> ListarFotosPisoPorId(int idPiso)
-        {
-
-            IEnumerable<FotoPisoDbModel> listaDbModel = this.accesoDatos.ListarFotosPisoPorId(idPiso);
-            MapeadorFotoPisoLogica mapeador = new MapeadorFotoPisoLogica();
-            IEnumerable<FotoPisoDTO> lista = mapeador.MapearTipo1Tipo2(listaDbModel);
-            return lista;
-        }
-        */
     }
 }

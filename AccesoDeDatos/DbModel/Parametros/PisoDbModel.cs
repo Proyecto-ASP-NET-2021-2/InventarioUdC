@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoDeDatos.DbModel.Piso
+namespace AccesoDeDatos.DbModel.Parametros
 {
     public class PisoDbModel
     {

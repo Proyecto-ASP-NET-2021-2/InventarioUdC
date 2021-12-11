@@ -1,5 +1,5 @@
-﻿using AccesoDeDatos.DbModel.Edificio;
-using AccesoDeDatos.Mapeadores.Edificio;
+﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.Mapeadores.Parametros;
 using AccesoDeDatos.ModeloDeDatos;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoDeDatos.Implementacion.Edificio
+namespace AccesoDeDatos.Implementacion.Parametros
 {
     public class ImplEdificioDatos
     {

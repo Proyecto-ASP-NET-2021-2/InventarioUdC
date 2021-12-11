@@ -1,14 +1,14 @@
-﻿using AccesoDeDatos.DbModel.Edificio;
-using AccesoDeDatos.Implementacion.Edificio;
-using LogicaNegocio.DTO.Edificio;
-using LogicaNegocio.Mapeadores.Edificio;
+﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.Implementacion.Parametros;
+using LogicaNegocio.DTO.Parametros;
+using LogicaNegocio.Mapeadores.Parametros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaNegocio.Implementacion.Edificio
+namespace LogicaNegocio.Implementacion.Parametros
 {
     public class ImplEdificioLogica
     {
@@ -77,29 +77,6 @@ namespace LogicaNegocio.Implementacion.Edificio
             return res;
         }
 
-        /*
-        public Boolean EliminarRegistroFoto(int id)
-        {
-            Boolean res = this.accesoDatos.EliminarRegistroFoto(id);
-            return res;
-        }
 
-        public Boolean GuardarNombreFoto(FotoEdificioDTO dto)
-        {
-            MapeadorFotoEdificioLogica mapeador = new MapeadorFotoEdificioLogica();
-            FotoEdificioDbModel dbModel = mapeador.MapearTipo2Tipo1(dto);
-            bool res = this.accesoDatos.GuardarFotoEdificio(dbModel);
-            return res;
-        }
-
-        public IEnumerable<FotoEdificioDTO> ListarFotosEdificioPorId(int idEdificio)
-        {
-
-            IEnumerable<FotoEdificioDbModel> listaDbModel = this.accesoDatos.ListarFotosEdificioPorId(idEdificio);
-            MapeadorFotoEdificioLogica mapeador = new MapeadorFotoEdificioLogica();
-            IEnumerable<FotoEdificioDTO> lista = mapeador.MapearTipo1Tipo2(listaDbModel);
-            return lista;
-        }
-        */
     }
 }

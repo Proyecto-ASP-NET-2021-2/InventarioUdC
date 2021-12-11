@@ -1,5 +1,5 @@
-﻿using AccesoDeDatos.DbModel.Piso;
-using AccesoDeDatos.Mapeadores.Piso;
+﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.Mapeadores.Parametros;
 using AccesoDeDatos.ModeloDeDatos;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoDeDatos.Implementacion.Piso
+namespace AccesoDeDatos.Implementacion.Parametros
 {
     public class ImplPisoDatos
     {

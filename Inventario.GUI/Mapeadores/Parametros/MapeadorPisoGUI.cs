@@ -1,8 +1,8 @@
-﻿using Inventario.GUI.Models.Piso;
-using LogicaNegocio.DTO.Piso;
+﻿using Inventario.GUI.Models.Parametros;
+using LogicaNegocio.DTO.Parametros;
 using System.Collections.Generic;
 
-namespace Inventario.GUI.Mapeadores.Piso
+namespace Inventario.GUI.Mapeadores.Parametros
 { 
     public class MapeadorPisoGUI : MapeadorBaseGUI<PisoDTO, ModeloPisoGUI>
     {
