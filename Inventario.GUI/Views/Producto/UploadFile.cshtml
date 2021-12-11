@@ -21,7 +21,7 @@
 
 <h2>Cargar Archivos</h2>
 
-@using (Html.BeginForm("UploadFile", "Foto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("UploadFile", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Id)

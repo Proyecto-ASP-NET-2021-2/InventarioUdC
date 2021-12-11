@@ -34,6 +34,21 @@ namespace AccesoDeDatos.Implementacion.Piso
             return lista;
         }
 
+        public IEnumerable<PisoDbModel> ListarRegistros()
+        {
+            var lista = new List<PisoDbModel>();
+            using (InventarioBDEntities bd = new InventarioBDEntities())
+            {
+                var listaDatos = (from m in bd.tb_piso
+
+                                  select m).ToList();
+
+                lista = new MapeadorPisoDatos().MapearTipo1Tipo2(listaDatos).ToList();
+
+            }
+            return lista;
+        }
+
         /// <summary>
         /// Método para almacenar un registro
         /// </summary>

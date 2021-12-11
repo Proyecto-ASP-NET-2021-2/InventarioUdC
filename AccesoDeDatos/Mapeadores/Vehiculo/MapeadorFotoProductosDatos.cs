@@ -2,7 +2,7 @@
 using AccesoDeDatos.ModeloDeDatos;
 using System.Collections.Generic;
 
-namespace AccesoDeDatos.Mapeadores.Parametros
+namespace AccesoDeDatos.Mapeadores.Vehiculo
 {
     public class MapeadorFotoProductosDatos : MapeadorBaseDatos<tb_foto, fotoProductoDbModel>
     {

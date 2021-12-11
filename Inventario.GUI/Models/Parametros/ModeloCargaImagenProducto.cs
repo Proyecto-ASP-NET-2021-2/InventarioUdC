@@ -24,9 +24,9 @@ namespace Inventario.GUI.Models.Parametros
             set { archivo = value; }
         }
 
-        private IEnumerable<ModeloFotosProductoGUI> listadoImagenesProducto;
+        private IEnumerable<ModeloFotoProductoGUI> listadoImagenesProducto;
 
-        public IEnumerable<ModeloFotosProductoGUI> ListadoImagenesProducto
+        public IEnumerable<ModeloFotoProductoGUI> ListadoImagenesProducto
         {
             get { return listadoImagenesProducto; }
             set { listadoImagenesProducto = value; }

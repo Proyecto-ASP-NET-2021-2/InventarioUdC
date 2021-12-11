@@ -3,6 +3,7 @@ using Inventario.GUI.Mapeadores.Parametros;
 using Inventario.GUI.Mapeadores.Producto;
 using Inventario.GUI.Models.Parametros;
 using Inventario.GUI.Models.Producto;
+using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.DTO.Producto;
 using LogicaNegocio.Implementacion.Parametros;
 using LogicaNegocio.Implementacion.Producto;
@@ -181,7 +182,65 @@ namespace Inventario.GUI.Controllers.Producto
             }
         }
 
-        
+        [HttpGet]
+        public ActionResult UploadFile(int? id)
+        {
+            return View();
+        }
+
+        private ModeloCargaImagenProducto CrearModeloCargarImagenProducto(int? id)
+        {
+            IEnumerable<fotosProductoDTO> listaDto = logica.ListarFotosProductoPorId(id.Value);
+            MapeadorFotosProductoGUI mapeador = new MapeadorFotosProductoGUI();
+            IEnumerable<ModeloFotoProductoGUI> listaProducto = mapeador.MapearTipo1Tipo2(listaDto);
+            if (listaProducto == null)
+            {
+                listaProducto = new List<ModeloFotoProductoGUI>();
+            }
+            ModeloCargaImagenProducto modelo = new ModeloCargaImagenProducto()
+            {
+                Id = id.Value,
+                ListadoImagenesProducto = (IEnumerable<ModeloFotoProductoGUI>)listaProducto
+            };
+            return modelo;
+        }
+
+        [HttpPost]
+        public ActionResult UploadFile(ModeloCargaImagenProducto modelo)
+        {
+            try
+            {
+                if (modelo.Archivo.ContentLength > 0)
+                {
+                    DateTime ahora = DateTime.Now;
+                    string fechaNombre = String.Format("{0}_{1}_{2}_{3}_{4}_{5}", ahora.Day, ahora.Month, ahora.Year, ahora.Hour, ahora.Minute, ahora.Millisecond);
+                    string nombreArchivo = String.Concat(fechaNombre, "_", Path.GetFileName(modelo.Archivo.FileName));
+                    string rutaCarpeta = DatosGenerales.RutaArchivosProducto;
+                    string rutaCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreArchivo);
+                    modelo.Archivo.SaveAs(rutaCompletaArchivo);
+                    fotosProductoDTO dto = new fotosProductoDTO()
+                    {
+                        IdProducto = modelo.Id,
+                        NombreFoto = nombreArchivo
+                    };
+
+                    //guardar nombre de archivo base de datos
+                    logica.guardarNombreFoto(dto);
+                    ModeloCargaImagenProducto modeloview = CrearModeloCargarImagenProducto(modelo.Id);
+                    ViewBag.UploadFileMessage = "Archivo cargado correctamente";
+                    return View();
+                }
+                ViewBag.UploadFileMessage = "Por favor seleccione al menos un archivo a cargar";
+                return View();
+            }
+            catch (Exception e)
+            {
+                ViewBag.UploadFileMessage = "Error al cargar el archivo";
+                return View();
+            }
+
+        }
+
 
     }
 }

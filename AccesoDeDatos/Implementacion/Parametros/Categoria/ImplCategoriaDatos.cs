@@ -1,5 +1,7 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.DbModel.Producto;
 using AccesoDeDatos.Mapeadores.Parametros;
+using AccesoDeDatos.Mapeadores.Producto;
 using AccesoDeDatos.ModeloDeDatos;
 using System;
 using System.Collections.Generic;
@@ -26,16 +28,16 @@ namespace AccesoDeDatos.Implementacion.Parametros
                 }
                 return lista;
         }
-        public IEnumerable<CategoriaDbModel> ListarRegistros()
+        public IEnumerable<ProductoDbModel> ListarRegistros()
         {
-            var lista = new List<CategoriaDbModel>();
+            var lista = new List<ProductoDbModel>();
             using (InventarioBDEntities bd = new InventarioBDEntities())
             {
-                var listaDatos = (from m in bd.tb_categoria
+                var listaDatos = (from m in bd.tb_producto
                                  
                                   select m).ToList();
               
-                lista = new MapeadorCategoriaDatos().MapearTipo1Tipo2(listaDatos).ToList();
+                lista = new MapeadorProductoDatos().MapearTipo1Tipo2(listaDatos).ToList();
 
             }
             return lista;
@@ -142,40 +144,7 @@ namespace AccesoDeDatos.Implementacion.Parametros
             }
         }
 
-        public bool guardarFotoProducto(fotoCategoriaDbModel dbModel)
-        {
-            try
-            {
-                using (InventarioBDEntities bd = new InventarioBDEntities())
-                { 
-                    if (bd.tb_producto.Where(x => x.id == dbModel.IdProducto).Count() > 0) {
-                        MapeadorFotoCategoriaDatos mapeador = new MapeadorFotoCategoriaDatos();
-                        tb_foto foto = mapeador.MapearTipo2Tipo1(dbModel);
-                        bd.tb_foto.Add(foto);
-                        bd.SaveChanges();
-                        return true;
-                    }
-                    return false;
-                }
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
-
-        }
-        public IEnumerable<fotoCategoriaDbModel> ListarProductosPorId(int id)
-        {
-            using (InventarioBDEntities bd = new InventarioBDEntities())
-            {
-                //var lista = bd.tb_espacios.Where(x => x.id_vehiculo == id).ToList();
-                var lista = (from f in bd.tb_foto
-                             where f.id_producto == id
-                             select f).ToList();
-                MapeadorFotoCategoriaDatos mapeador = new MapeadorFotoCategoriaDatos();
-                IEnumerable<fotoCategoriaDbModel> listaDbModel = mapeador.MapearTipo1Tipo2(lista);
-                return listaDbModel;
-            }
-        }
+      
+        
     }
 }

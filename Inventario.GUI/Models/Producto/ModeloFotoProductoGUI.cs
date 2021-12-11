@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace LogicaNegocio.DTO.Parametros
+namespace Inventario.GUI.Models.Parametros
 {
-    public class fotoCategoriaDTO
+    public class ModeloFotoProductoGUI
     {
         private int id;
 
@@ -26,10 +25,12 @@ namespace LogicaNegocio.DTO.Parametros
 
         private String nombreFoto;
 
-        public String NombreFoto
+        public String NombreFoto 
         {
             get { return nombreFoto; }
             set { nombreFoto = value; }
         }
+
+
     }
 }

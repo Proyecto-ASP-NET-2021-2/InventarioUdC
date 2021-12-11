@@ -35,6 +35,13 @@ namespace LogicaNegocio.Implementacion.Piso
             return mapeador.MapearTipo1Tipo2(listado);
         }
 
+        public IEnumerable<PisoDTO> ListarRegistros()
+        {
+            var listado = this.accesoDatos.ListarRegistros();
+            MapeadorPisoLogica mapeador = new MapeadorPisoLogica();
+            return mapeador.MapearTipo1Tipo2(listado);
+        }
+
         /// <summary>
         /// 
         /// </summary>

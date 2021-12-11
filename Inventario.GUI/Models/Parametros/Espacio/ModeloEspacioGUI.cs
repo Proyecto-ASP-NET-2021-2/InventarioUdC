@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventario.GUI.Models.Piso;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -42,9 +43,9 @@ namespace Inventario.GUI.Models.Parametros
         }
 
         //aqui hay que reemplazar ModelCategoriaGUI por ModeloPisosGUI
-        private IEnumerable<ModeloEspacioGUI> listaPisos;
+        private IEnumerable<ModeloPisoGUI> listaPisos;
 
-        public IEnumerable<ModeloEspacioGUI> ListaPisos
+        public IEnumerable<ModeloPisoGUI> ListaPisos
         {
             get { return listaPisos; }
             set { listaPisos = value; }

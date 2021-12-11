@@ -51,13 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbModel\Parametros\Espacio\EspacioDbModel.cs" />
-    <Compile Include="DbModel\Parametros\Categoria\fotoCategoriaDbModel.cs" />
     <Compile Include="DbModel\Parametros\Espacio\fotoEspacioDbModel.cs" />
-    <Compile Include="DbModel\Parametros\Fotos\fotoProductoDbModel.cs" />
-    <Compile Include="DbModel\Parametros\Fotos\FotosDbModel.cs" />
     <Compile Include="DbModel\Parametros\Categoria\CategoriaDbModel.cs" />
+    <Compile Include="DbModel\Producto\fotoProductoDbModel.cs" />
     <Compile Include="Implementacion\Parametros\Espacio\ImplEspacioDatos.cs" />
-    <Compile Include="Implementacion\Parametros\Fotos\ImplFotosDatos.cs" />
     <Compile Include="Implementacion\Parametros\Categoria\ImplCategoriaDatos.cs" />
     <Compile Include="DbModel\Parametros\EdificioDbModel.cs" />
     <Compile Include="DbModel\Parametros\PisoDbModel.cs" />
@@ -72,17 +69,15 @@
     <Compile Include="Implementacion\Parametros\ImplPisoDatos.cs" />
     <Compile Include="Implementacion\Vehiculo\ImplVehiculoDatos.cs" />
     <Compile Include="Mapeadores\MapeadorBaseDatos.cs" />
-    <Compile Include="Mapeadores\Parametros\Categoria\MapeadorFotoCategoriaDatos.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioDatos.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorFotoEspacioDatos.cs" />
-    <Compile Include="Mapeadores\Parametros\Fotos\MapeadorFotoProductosDatos.cs" />
-    <Compile Include="Mapeadores\Parametros\Fotos\MapeadorFotosDatos.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorEdificioDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorPisoDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorSedeDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaDatos.cs" />
+    <Compile Include="Mapeadores\Vehiculo\MapeadorFotoProductosDatos.cs" />
     <Compile Include="Mapeadores\Vehiculo\MapeadorProductoDatos.cs" />
     <Compile Include="ModeloDeDatos\ModeloInventario.Context.cs">
       <AutoGen>True</AutoGen>

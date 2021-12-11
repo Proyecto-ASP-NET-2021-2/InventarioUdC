@@ -143,7 +143,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Parametros\CategoriaController.cs" />
     <Compile Include="Controllers\Parametros\EspacioController.cs" />
-    <Compile Include="Controllers\Parametros\FotosController.cs" />
     <Compile Include="Controllers\Parametros\TipoProductoController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
     <Compile Include="Controllers\Producto\ProductoController.cs" />
@@ -154,19 +153,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FabricaArchivosPDF.cs" />
-    <Compile Include="Mapeadores\Parametros\Categoria\MapeadorFotoCategoriaGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorFotoEspacioGUI.cs" />
-    <Compile Include="Mapeadores\Parametros\Fotos\MapeadorFotosProductoGUI.cs" />
-    <Compile Include="Mapeadores\Parametros\Fotos\MapeadorFotosGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaGUI.cs" />
-    <Compile Include="Models\Parametros\Categoria\ModeloFotoCategoriaGUI.cs" />
+    <Compile Include="Mapeadores\Producto\MapeadorFotosProductoGUI.cs" />
     <Compile Include="Models\Parametros\Espacio\ModeloFotosEspacioGUI.cs" />
-    <Compile Include="Models\Parametros\Fotos\ModeloFotosProductoGUI - Copia.cs" />
     <Compile Include="Models\Parametros\ModeloCargaImagenEspacio.cs" />
     <Compile Include="Models\Parametros\ModeloCargaImagenProducto.cs" />
     <Compile Include="Models\Parametros\Espacio\ModeloEspacioGUI.cs" />
-    <Compile Include="Models\Parametros\Fotos\ModeloFotosGUI.cs" />
     <Compile Include="Models\Parametros\ModeloCategoriaGUI.cs" />
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensajes.cs" />
@@ -174,6 +168,7 @@
     <Compile Include="Mapeadores\Parametros\MapeadorPisoGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorSedeGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoGUI.cs" />
+    <Compile Include="Models\Producto\ModeloFotoProductoGUI.cs" />
     <Compile Include="Models\Producto\ModeloProductoGUI.cs" />
     <Compile Include="Models\Parametros\ModeloEdificioGUI.cs" />
     <Compile Include="Models\Parametros\ModeloPisoGUI.cs" />
@@ -227,20 +222,13 @@
     <Content Include="Views\Categoria\Details.cshtml" />
     <Content Include="Views\Categoria\Edit.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
-    <Content Include="Views\Foto\Create.cshtml" />
-    <Content Include="Views\Foto\Delete.cshtml" />
-    <Content Include="Views\Foto\Details.cshtml" />
-    <Content Include="Views\Foto\Edit.cshtml" />
-    <Content Include="Views\Foto\Index.cshtml" />
     <Content Include="Views\Espacio\Create.cshtml" />
     <Content Include="Views\Espacio\Delete.cshtml" />
     <Content Include="Views\Espacio\Details.cshtml" />
     <Content Include="Views\Espacio\Edit.cshtml" />
     <Content Include="Views\Espacio\Index.cshtml" />
-    <Content Include="Views\Foto\UploadFile.cshtml" />
     <Content Include="Views\Espacio\UploadFile.cshtml" />
     <Content Include="Views\Shared\_FooterPagedList.cshtml" />
-    <Content Include="Views\Categoria\UploadFile.cshtml" />
     <Content Include="Views\Marca\Create.cshtml" />
     <Content Include="Views\Marca\Delete.cshtml" />
     <Content Include="Views\Marca\Details.cshtml" />
@@ -275,6 +263,7 @@
     <Content Include="Views\Piso\Details.cshtml" />
     <Content Include="Views\Piso\Edit.cshtml" />
     <Content Include="Views\Piso\Index.cshtml" />
+    <Content Include="Views\Producto\UploadFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

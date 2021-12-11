@@ -1,5 +1,7 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.DbModel.Piso;
 using AccesoDeDatos.Mapeadores.Parametros;
+using AccesoDeDatos.Mapeadores.Piso;
 using AccesoDeDatos.ModeloDeDatos;
 using System;
 using System.Collections.Generic;
@@ -27,16 +29,16 @@ namespace LogicaNegocio.Implementacion.Parametros
             return lista;
         }
 
-        public IEnumerable<EspacioDbModel> ListarRegistros()
+        public IEnumerable<PisoDbModel> ListarRegistros()
         {
-            var lista = new List<EspacioDbModel>();
+            var lista = new List<PisoDbModel>();
             using (InventarioBDEntities bd = new InventarioBDEntities())
             {
-                var listaDatos = (from m in bd.tb_espacio
+                var listaDatos = (from m in bd.tb_piso
 
                                   select m).ToList();
 
-                lista = new MapeadorEspacioDatos().MapearTipo1Tipo2(listaDatos).ToList();
+                lista = new MapeadorPisoDatos().MapearTipo1Tipo2(listaDatos).ToList();
 
             }
             return lista;

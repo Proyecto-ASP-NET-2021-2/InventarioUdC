@@ -11,6 +11,9 @@ using Inventario.GUI.Mapeadores.Parametros.Espacio;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.Implementacion.Parametros;
 using Inventario.GUI.Helpers;
+using Inventario.GUI.Models.Piso;
+using LogicaNegocio.Implementacion.Piso;
+using Inventario.GUI.Mapeadores.Piso;
 
 namespace Inventario.GUI.Controllers.Parametros
 {
@@ -53,17 +56,17 @@ namespace Inventario.GUI.Controllers.Parametros
         public ActionResult Create()
         {
             //hay que cambira por piso ****************************************************************
-            IEnumerable<ModeloEspacioGUI> listado = obtenerListadoPisos();
+            IEnumerable<ModeloPisoGUI> listado = obtenerListadoPisos();
             ModeloEspacioGUI modelo = new ModeloEspacioGUI();
             modelo.ListaPisos = listado;
             return View(modelo);
         }
-        private IEnumerable<ModeloEspacioGUI> obtenerListadoPisos()
+        private IEnumerable<ModeloPisoGUI> obtenerListadoPisos()
         {
-            ImplEspacioLogica producto = new ImplEspacioLogica();
-            var listaProductos = producto.ListarRegistros();
-            MapeadorEspacioGUI mapeador = new MapeadorEspacioGUI();
-            var listado = mapeador.MapearTipo1Tipo2(listaProductos);
+            ImplPisoLogica pisos = new ImplPisoLogica();
+            var listaPisos = pisos.ListarRegistros();
+            MapeadorPisoGUI mapeador = new MapeadorPisoGUI();
+            var listado = mapeador.MapearTipo1Tipo2(listaPisos);
             return listado;
         }
 

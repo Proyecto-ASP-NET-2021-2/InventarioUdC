@@ -1,7 +1,9 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
 using AccesoDeDatos.Implementacion.Parametros;
 using LogicaNegocio.DTO.Parametros;
+using LogicaNegocio.DTO.Producto;
 using LogicaNegocio.Mapeadores.Parametros;
+using LogicaNegocio.Mapeadores.Producto;
 using System;
 using System.Collections.Generic;
 
@@ -21,10 +23,10 @@ namespace LogicaNegocio.Implementacion.Parametros.Categoria
             return mapeador.MapearTipo1Tipo2(listado);
         }
         // esto va en producto
-        public IEnumerable<CategoriaDTO> ListarRegistros()
+        public IEnumerable<ProductoDTO> ListarRegistros()
         {
             var listado = this.accesoDatos.ListarRegistros();
-            MapeadorCategoriaLogica mapeador = new MapeadorCategoriaLogica();
+            MapeadorProductoLogica mapeador = new MapeadorProductoLogica();
             return mapeador.MapearTipo1Tipo2(listado);
         }
 
@@ -58,21 +60,7 @@ namespace LogicaNegocio.Implementacion.Parametros.Categoria
             return res;
         }
 
-        public Boolean guardarNombreFoto(fotoCategoriaDTO dto)
-        {
-            MapeadorFotoCategoriaLogica mapeador = new MapeadorFotoCategoriaLogica();
-            fotoCategoriaDbModel dbModel = mapeador.MapearTipo2Tipo1(dto);
-            bool res = this.accesoDatos.guardarFotoProducto(dbModel);
-            return res;
-        }
-        public IEnumerable<fotoCategoriaDTO> ListarFotosProductosPorId(int idProducto)
-        {
-
-            IEnumerable<fotoCategoriaDbModel> listaDbModel = this.accesoDatos.ListarProductosPorId(idProducto);
-            MapeadorFotoCategoriaLogica mapeador = new MapeadorFotoCategoriaLogica();
-            IEnumerable<fotoCategoriaDTO> lista = mapeador.MapearTipo1Tipo2(listaDbModel);
-            return lista;
-        }
+       
         public Boolean EliminarRegistroFoto(int id)
         {
             Boolean res = this.accesoDatos.EliminarRegistroFoto(id);

@@ -70,7 +70,8 @@
     <td>
         @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
         @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) |
-        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })|
+        @Html.ActionLink("Fotos", "UploadFile", new { id = item.Id }, new { @class = "btn btn-success" })
     </td>
 </tr>
     }

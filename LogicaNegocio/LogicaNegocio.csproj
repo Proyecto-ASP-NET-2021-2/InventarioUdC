@@ -42,13 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Parametros\Espacio\EspacioDTO.cs" />
-    <Compile Include="DTO\Parametros\Categoria\fotoCategoriaDTO.cs" />
     <Compile Include="DTO\Parametros\Espacio\fotoEspacioDTO.cs" />
-    <Compile Include="DTO\Parametros\Fotos\fotosProductoDTO.cs" />
-    <Compile Include="DTO\Parametros\Fotos\FotosDTO.cs" />
     <Compile Include="DTO\Parametros\Categoria\CategoriaDTO.cs" />
+    <Compile Include="DTO\Producto\fotosProductoDTO.cs" />
     <Compile Include="Implementacion\Parametros\Espacio\ImplEspacioLogica.cs" />
-    <Compile Include="Implementacion\Parametros\Fotos\ImplFotosLogica.cs" />
     <Compile Include="Implementacion\Parametros\Categoria\ImplCategoriaLogica.cs" />
     <Compile Include="DTO\Parametros\EdificioDTO.cs" />
     <Compile Include="DTO\Parametros\PisoDTO.cs" />
@@ -68,12 +65,10 @@
     <Compile Include="Mapeadores\Parametros\MapeadorSedeLogica.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoLogica.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaLogica.cs" />
+    <Compile Include="Mapeadores\Producto\MapeadorFotosProductoLogica.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoLogica.cs" />
-    <Compile Include="Mapeadores\Parametros\Categoria\MapeadorFotoCategoriaLogica.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioLogica.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorFotoEspacioLogica.cs" />
-    <Compile Include="Mapeadores\Parametros\Fotos\MapeadorFotosProductoLogica.cs" />
-    <Compile Include="Mapeadores\Parametros\Fotos\MapeadorFotosLogica.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

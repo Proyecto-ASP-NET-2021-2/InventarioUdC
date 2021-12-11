@@ -1,9 +1,14 @@
 ﻿
 using Inventario.GUI.Helpers;
+using Inventario.GUI.Mapeadores.Parametros;
 using Inventario.GUI.Mapeadores.Parametros.Categoria;
+using Inventario.GUI.Mapeadores.Producto;
 using Inventario.GUI.Models.Parametros;
+using Inventario.GUI.Models.Producto;
 using LogicaNegocio.DTO.Parametros;
+using LogicaNegocio.Implementacion.Parametros;
 using LogicaNegocio.Implementacion.Parametros.Categoria;
+using LogicaNegocio.Implementacion.Producto;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -51,18 +56,18 @@ namespace Inventario.GUI.Controllers.Parametros
         // GET: Categoria/Create
         public ActionResult Create()
         {
-            //hay que cambira por producto ****************************************************************
-            IEnumerable<ModeloCategoriaGUI> listado = obtenerListadoProductos();
-            ModeloFotosGUI modelo = new ModeloFotosGUI();
+            
+            IEnumerable<ModeloProductoGUI> listado = obtenerListadoProductos();
+            ModeloProductoGUI modelo = new ModeloProductoGUI();
             modelo.ListaProducto = listado;
             return View(modelo);
         }
 
-        private IEnumerable<ModeloCategoriaGUI> obtenerListadoProductos()
+        private IEnumerable<ModeloProductoGUI> obtenerListadoProductos()
         {
-            ImplCategoriaLogica producto = new ImplCategoriaLogica();
+            ImplProductoLogica producto = new ImplProductoLogica();
             var listaProductos = producto.ListarRegistros();
-            MapeadorCategoriaGUI mapeador = new MapeadorCategoriaGUI();
+            MapeadorProductoGUI mapeador = new MapeadorProductoGUI();
             var listado = mapeador.MapearTipo1Tipo2(listaProductos);
             return listado;
         }
@@ -161,64 +166,7 @@ namespace Inventario.GUI.Controllers.Parametros
 
         }
 
-        [HttpGet]
-        public ActionResult UploadFile(int? id)
-        {
-            return View();
-        }
-
-        private ModeloCargaImagenProducto CrearModeloCargarImagenProducto(int? id)
-        {
-            IEnumerable<fotoCategoriaDTO> listaDto = acceso.ListarFotosProductosPorId(id.Value);
-            MapeadorFotoCategoriaGUI mapeador = new MapeadorFotoCategoriaGUI();
-            IEnumerable<ModeloFotoCategoriaGUI> listaProducto = mapeador.MapearTipo1Tipo2(listaDto);
-            if (listaProducto == null)
-            {
-                listaProducto = new List<ModeloFotoCategoriaGUI>();
-            }
-            ModeloCargaImagenProducto modelo = new ModeloCargaImagenProducto()
-            {
-                Id = id.Value,
-                ListadoImagenesProducto = (IEnumerable<ModeloFotosProductoGUI>)listaProducto
-            };
-            return modelo;
-        }
-
-        [HttpPost]
-        public ActionResult UploadFile(ModeloCargaImagenProducto modelo)
-        {
-            try
-            {
-                if (modelo.Archivo.ContentLength > 0)
-                {
-                    DateTime ahora = DateTime.Now;
-                    string fechaNombre = String.Format("{0}_{1}_{2}_{3}_{4}_{5}", ahora.Day, ahora.Month, ahora.Year, ahora.Hour, ahora.Minute, ahora.Millisecond);
-                    string nombreArchivo = String.Concat(fechaNombre, "_", Path.GetFileName(modelo.Archivo.FileName));
-                    string rutaCarpeta = DatosGenerales.RutaArchivosProducto;
-                    string rutaCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreArchivo);
-                    modelo.Archivo.SaveAs(rutaCompletaArchivo);
-                    fotoCategoriaDTO dto = new fotoCategoriaDTO()
-                    {
-                        IdProducto = modelo.Id,
-                        NombreFoto = nombreArchivo
-                    };
-
-                //guardar nombre de archivo base de datos
-                    acceso.guardarNombreFoto(dto);
-                    ModeloCargaImagenProducto modeloview = CrearModeloCargarImagenProducto(modelo.Id);
-                    ViewBag.UploadFileMessage = "Archivo cargado correctamente";
-                    return View();
-                }
-                ViewBag.UploadFileMessage = "Por favor seleccione al menos un archivo a cargar";
-                return View();
-            }
-            catch (Exception e)
-            {
-                ViewBag.UploadFileMessage = "Error al cargar el archivo";
-                return View();
-            }
-
-        }
+        
 
 
     }
