@@ -45,11 +45,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
@@ -135,25 +141,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Parametros\EdificioController.cs" />
-    <Compile Include="Controllers\Parametros\PisoController.cs" />
-    <Compile Include="Controllers\Parametros\SedeController.cs" />
     <Compile Include="Controllers\Parametros\TipoProductoController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
     <Compile Include="Controllers\Producto\ProductoController.cs" />
+	  <Compile Include="Controllers\Parametros\EdificioController.cs" />
+	  <Compile Include="Controllers\Parametros\PisoController.cs" />
+	  <Compile Include="Controllers\Parametros\SedeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensajes.cs" />
-    <Compile Include="Mapeadores\Parametros\MapeadorEdificioGUI.cs" />
-    <Compile Include="Mapeadores\Parametros\MapeadorPisoGUI.cs" />
-    <Compile Include="Mapeadores\Parametros\MapeadorSedeGUI.cs" />
+	  <Compile Include="Mapeadores\Parametros\MapeadorEdificioGUI.cs" />
+	  <Compile Include="Mapeadores\Parametros\MapeadorPisoGUI.cs" />
+	  <Compile Include="Mapeadores\Parametros\MapeadorSedeGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoGUI.cs" />
-    <Compile Include="Models\Parametros\ModeloEdificioGUI.cs" />
-    <Compile Include="Models\Parametros\ModeloPisoGUI.cs" />
-    <Compile Include="Models\Parametros\ModeloSedeGUI.cs" />
     <Compile Include="Models\Producto\ModeloProductoGUI.cs" />
+	  <Compile Include="Models\Parametros\ModeloEdificioGUI.cs" />
+	  <Compile Include="Models\Parametros\ModeloPisoGUI.cs" />
+	  <Compile Include="Models\Parametros\ModeloSedeGUI.cs" />
     <Compile Include="Mapeadores\MapeadorBaseGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorMarcaGUI.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoGUI.cs" />
@@ -217,21 +223,21 @@
     <Content Include="Views\Shared\_FooterPagedList.cshtml" />
     <Content Include="Views\Shared\_Mensajes.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
-    <Content Include="Views\Sede\Create.cshtml" />
-    <Content Include="Views\Sede\Delete.cshtml" />
-    <Content Include="Views\Sede\Details.cshtml" />
-    <Content Include="Views\Sede\Edit.cshtml" />
-    <Content Include="Views\Sede\Index.cshtml" />
-    <Content Include="Views\Edificio\Create.cshtml" />
-    <Content Include="Views\Edificio\Delete.cshtml" />
-    <Content Include="Views\Edificio\Details.cshtml" />
-    <Content Include="Views\Edificio\Edit.cshtml" />
-    <Content Include="Views\Edificio\Index.cshtml" />
-    <Content Include="Views\Piso\Create.cshtml" />
-    <Content Include="Views\Piso\Delete.cshtml" />
-    <Content Include="Views\Piso\Details.cshtml" />
-    <Content Include="Views\Piso\Edit.cshtml" />
-    <Content Include="Views\Piso\Index.cshtml" />
+	  <Content Include="Views\Sede\Create.cshtml" />
+	  <Content Include="Views\Sede\Delete.cshtml" />
+	  <Content Include="Views\Sede\Details.cshtml" />
+	  <Content Include="Views\Sede\Edit.cshtml" />
+	  <Content Include="Views\Sede\Index.cshtml" />
+	  <Content Include="Views\Edificio\Create.cshtml" />
+	  <Content Include="Views\Edificio\Delete.cshtml" />
+	  <Content Include="Views\Edificio\Details.cshtml" />
+	  <Content Include="Views\Edificio\Edit.cshtml" />
+	  <Content Include="Views\Edificio\Index.cshtml" />
+	  <Content Include="Views\Piso\Create.cshtml" />
+	  <Content Include="Views\Piso\Delete.cshtml" />
+	  <Content Include="Views\Piso\Details.cshtml" />
+	  <Content Include="Views\Piso\Edit.cshtml" />
+	  <Content Include="Views\Piso\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
