@@ -9,7 +9,7 @@ using PagedList;
 using LogicaNegocio.Implementacion.Parametros.Espacio;
 using Inventario.GUI.Mapeadores.Parametros.Espacio;
 using LogicaNegocio.DTO.Parametros;
-using LogicaNegocio.Implementacion.Parametros.Espacio;
+using LogicaNegocio.Implementacion.Parametros;
 using Inventario.GUI.Helpers;
 
 namespace Inventario.GUI.Controllers.Parametros

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Inventario.GUI.Models.Edificio
+namespace Inventario.GUI.Models.Parametros
 {
     public class ModeloEdificioGUI
     {

@@ -1,4 +1,4 @@
-﻿using Inventario.GUI.Models.Edificio;
+﻿using Inventario.GUI.Models.Parametros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

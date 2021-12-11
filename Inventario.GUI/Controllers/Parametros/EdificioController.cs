@@ -1,7 +1,7 @@
 ﻿using Inventario.GUI.Helpers;
 using Inventario.GUI.Mapeadores.Edificio;
 using Inventario.GUI.Mapeadores.Parametros;
-using Inventario.GUI.Models.Edificio;
+using Inventario.GUI.Models.Parametros;
 using LogicaNegocio.DTO.Edificio;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.Implementacion.Edificio;

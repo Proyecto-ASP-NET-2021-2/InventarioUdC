@@ -1,4 +1,4 @@
-﻿using Inventario.GUI.Models.Edificio;
+﻿using Inventario.GUI.Models.Parametros;
 using LogicaNegocio.DTO.Edificio;
 using System.Collections.Generic;
 
