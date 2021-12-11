@@ -267,6 +267,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadFiles\Eliminados\" />
+    <Folder Include="UploadFiles\FotosEspacio\" />
+    <Folder Include="UploadFiles\FotosProducto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
