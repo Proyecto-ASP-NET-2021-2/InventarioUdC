@@ -28,16 +28,16 @@ namespace AccesoDeDatos.Implementacion.Parametros
                 }
                 return lista;
         }
-        public IEnumerable<ProductoDbModel> ListarRegistros()
+        public IEnumerable<CategoriaDbModel> ListarRegistros()
         {
-            var lista = new List<ProductoDbModel>();
+            var lista = new List<CategoriaDbModel>();
             using (InventarioBDEntities bd = new InventarioBDEntities())
             {
-                var listaDatos = (from m in bd.tb_producto
+                var listaDatos = (from m in bd.tb_categoria
                                  
                                   select m).ToList();
               
-                lista = new MapeadorProductoDatos().MapearTipo1Tipo2(listaDatos).ToList();
+                lista = new MapeadorCategoriaDatos().MapearTipo1Tipo2(listaDatos).ToList();
 
             }
             return lista;

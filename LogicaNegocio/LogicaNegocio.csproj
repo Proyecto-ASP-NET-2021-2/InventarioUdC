@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Parametros\Espacio\EspacioDTO.cs" />
-    <Compile Include="DTO\Parametros\Espacio\fotoEspacioDTO.cs" />
     <Compile Include="DTO\Parametros\Categoria\CategoriaDTO.cs" />
     <Compile Include="DTO\Producto\fotosProductoDTO.cs" />
     <Compile Include="Implementacion\Parametros\Espacio\ImplEspacioLogica.cs" />
@@ -68,7 +67,6 @@
     <Compile Include="Mapeadores\Producto\MapeadorFotosProductoLogica.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorProductoLogica.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioLogica.cs" />
-    <Compile Include="Mapeadores\Parametros\Espacio\MapeadorFotoEspacioLogica.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

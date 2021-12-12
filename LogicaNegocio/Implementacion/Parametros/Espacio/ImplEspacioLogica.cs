@@ -22,10 +22,10 @@ namespace LogicaNegocio.Implementacion.Parametros.Espacio
             return mapeador.MapearTipo1Tipo2(listado);
         }
         //hay que cambiar por Piso****************************************************
-        public IEnumerable<PisoDTO> ListarRegistros()
+        public IEnumerable<EspacioDTO> ListarRegistros()
         {
             var listado = this.accesoDatos.ListarRegistros();
-            MapeadorPisoLogica mapeador = new MapeadorPisoLogica();
+            MapeadorEspacioLogica mapeador = new MapeadorEspacioLogica();
             return mapeador.MapearTipo1Tipo2(listado);
         }
 
@@ -58,26 +58,6 @@ namespace LogicaNegocio.Implementacion.Parametros.Espacio
             bool res = this.accesoDatos.EliminarRegistro(id);
             return res;
         }
-        public Boolean guardarNombreFoto(fotoEspacioDTO dto)
-        {
-            MapeadorFotoEspacioLogica mapeador = new MapeadorFotoEspacioLogica();
-            fotoEspacioDbModel dbModel = mapeador.MapearTipo2Tipo1(dto);
-            bool res = this.accesoDatos.guardarFotoEspacio(dbModel);
-            return res;
-        }
-
-        public IEnumerable<fotoEspacioDTO> ListarFotosPisosPorId(int idProducto)
-        {
-
-            IEnumerable<fotoEspacioDbModel> listaDbModel = this.accesoDatos.ListarEspacioPisosPorId(idProducto);
-            MapeadorFotoEspacioLogica mapeador = new MapeadorFotoEspacioLogica();
-            IEnumerable<fotoEspacioDTO> lista = mapeador.MapearTipo1Tipo2(listaDbModel);
-            return lista;
-        }
-        public Boolean EliminarRegistroFoto(int id)
-        {
-            Boolean res = this.accesoDatos.EliminarRegistroFoto(id);
-            return res;
-        }
+       
     }
 }

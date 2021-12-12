@@ -13,7 +13,7 @@ namespace AccesoDeDatos.Mapeadores.Parametros
             {
                 Id = entrada.id,
                 Nombre = entrada.nombre,
-                //NombrePiso = entrada.tb_piso.nombre,
+                NombrePiso = entrada.tb_piso.nombre,
                 IdPiso = entrada.id_piso
             };
         }
@@ -31,7 +31,9 @@ namespace AccesoDeDatos.Mapeadores.Parametros
             return new tb_espacio()
             {
                 id = entrada.Id,
-                nombre = entrada.Nombre
+                nombre = entrada.Nombre,
+                id_piso = entrada.IdPiso
+                
             };
         }
 

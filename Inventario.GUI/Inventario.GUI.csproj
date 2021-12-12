@@ -154,11 +154,8 @@
     </Compile>
     <Compile Include="Helpers\FabricaArchivosPDF.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioGUI.cs" />
-    <Compile Include="Mapeadores\Parametros\Espacio\MapeadorFotoEspacioGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaGUI.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorFotosProductoGUI.cs" />
-    <Compile Include="Models\Parametros\Espacio\ModeloFotosEspacioGUI.cs" />
-    <Compile Include="Models\Parametros\ModeloCargaImagenEspacio.cs" />
     <Compile Include="Models\Parametros\ModeloCargaImagenProducto.cs" />
     <Compile Include="Models\Parametros\Espacio\ModeloEspacioGUI.cs" />
     <Compile Include="Models\Parametros\ModeloCategoriaGUI.cs" />
@@ -227,7 +224,6 @@
     <Content Include="Views\Espacio\Details.cshtml" />
     <Content Include="Views\Espacio\Edit.cshtml" />
     <Content Include="Views\Espacio\Index.cshtml" />
-    <Content Include="Views\Espacio\UploadFile.cshtml" />
     <Content Include="Views\Shared\_FooterPagedList.cshtml" />
     <Content Include="Views\Marca\Create.cshtml" />
     <Content Include="Views\Marca\Delete.cshtml" />
@@ -267,9 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="UploadFiles\Eliminados\" />
-    <Folder Include="UploadFiles\FotosEspacio\" />
-    <Folder Include="UploadFiles\FotosProducto\" />
+    <Folder Include="UploadFiles\FotosProducto\Eliminados\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

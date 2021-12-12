@@ -14,6 +14,7 @@ using Inventario.GUI.Helpers;
 using Inventario.GUI.Models.Piso;
 using LogicaNegocio.Implementacion.Piso;
 using Inventario.GUI.Mapeadores.Piso;
+using LogicaNegocio.DTO.Piso;
 
 namespace Inventario.GUI.Controllers.Parametros
 {
@@ -56,11 +57,14 @@ namespace Inventario.GUI.Controllers.Parametros
         public ActionResult Create()
         {
             //hay que cambira por piso ****************************************************************
-            IEnumerable<ModeloPisoGUI> listado = obtenerListadoPisos();
+           // IEnumerable<ModeloPisoGUI> listado = obtenerListadoPisos();
             ModeloEspacioGUI modelo = new ModeloEspacioGUI();
-            modelo.ListaPisos = listado;
+            ObtenerListadoPiso(modelo);
+            //modelo.ListaPisos = listado;
             return View(modelo);
         }
+
+        /*
         private IEnumerable<ModeloPisoGUI> obtenerListadoPisos()
         {
             ImplPisoLogica pisos = new ImplPisoLogica();
@@ -68,6 +72,14 @@ namespace Inventario.GUI.Controllers.Parametros
             MapeadorPisoGUI mapeador = new MapeadorPisoGUI();
             var listado = mapeador.MapearTipo1Tipo2(listaPisos);
             return listado;
+        }*/
+
+        private void ObtenerListadoPiso(ModeloEspacioGUI modelo)
+        {
+            ImplPisoLogica logicaPiso = new ImplPisoLogica();
+            IEnumerable<PisoDTO> listaDTO = logicaPiso.ListarRegistros();
+            MapeadorPisoGUI mapeador = new MapeadorPisoGUI();
+            modelo.ListaPisos = mapeador.MapearTipo1Tipo2(listaDTO);
         }
 
         // POST: Espacio/Create
@@ -75,7 +87,7 @@ namespace Inventario.GUI.Controllers.Parametros
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre")] ModeloEspacioGUI modelo)
+        public ActionResult Create(ModeloEspacioGUI modelo)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +122,7 @@ namespace Inventario.GUI.Controllers.Parametros
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre")] ModeloEspacioGUI modelo)
+        public ActionResult Edit(ModeloEspacioGUI modelo)
         {
             if (ModelState.IsValid)
             {
@@ -163,88 +175,7 @@ namespace Inventario.GUI.Controllers.Parametros
             }
 
 
-        }
-        //hay que cambiar por ModeloPisoGUI ***********************************************************
-        
+        } 
 
-        [HttpGet]
-        public ActionResult UploadFile(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ModeloCargaImagenEspacio modelo = CrearModeloCargarImagenEspacio(id);
-            return View(modelo);
-        }
-
-        private ModeloCargaImagenEspacio CrearModeloCargarImagenEspacio(int? id)
-        {
-            IEnumerable<fotoEspacioDTO> listaDto = acceso.ListarFotosPisosPorId(id.Value);
-            MapeadorFotoEspacioGUI mapeador = new MapeadorFotoEspacioGUI();
-            IEnumerable<ModeloFotosEspacioGUI> listaEspacio = mapeador.MapearTipo1Tipo2(listaDto);
-            if (listaEspacio == null)
-            {
-                listaEspacio = new List<ModeloFotosEspacioGUI>();
-            }
-            ModeloCargaImagenEspacio modelo = new ModeloCargaImagenEspacio()
-            {
-                Id = id.Value,
-                ListadoImagenesEspacio = listaEspacio
-            };
-            return modelo;
-        }
-
-        [HttpPost]
-        public ActionResult UploadFile(ModeloCargaImagenEspacio modelo)
-        {
-            try
-            {
-                if (modelo.Archivo.ContentLength > 0)
-                {
-                      DateTime ahora = DateTime.Now;
-                        string fechaNombre = String.Format("{0}_{1}_{2}_{3}_{4}_{5}", ahora.Day, ahora.Month, ahora.Year, ahora.Hour, ahora.Minute, ahora.Millisecond);
-                        string nombreArchivo = String.Concat(fechaNombre, "_", Path.GetFileName(modelo.Archivo.FileName));
-                        string rutaCarpeta = DatosGenerales.RutaArchivosEspacio;
-                        string rutaCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreArchivo);
-                        modelo.Archivo.SaveAs(rutaCompletaArchivo);
-                        fotoEspacioDTO dto = new fotoEspacioDTO()
-                        {
-                            IdPiso = modelo.Id,
-                            NombreFoto = nombreArchivo
-                        };
-
-                        //guardar nombre de archivo base de datos
-                        acceso.guardarNombreFoto(dto);
-                        ViewBag.UploadFileMessage = "Archivo cargado correctamente";
-                        ModeloCargaImagenEspacio modeloview = CrearModeloCargarImagenEspacio(modelo.Id);
-                        return View(modeloview);
-                    
-
-                }
-                ViewBag.UploadFileMessage = "Por favor seleccione al menos un archivo a cargar";
-                return View();
-            }
-            catch (Exception e)
-            {
-                ViewBag.UploadFileMessage = "Error al cargar el archivo";
-                return View();
-            }
-
-        }
-
-        public ActionResult EliminarFoto(int idFotoProducto, string nombreFotoProducto)
-        {
-            bool respuesta = acceso.EliminarRegistroFoto(idFotoProducto);
-            if (respuesta)
-            {
-                string rutaCarpeta = DatosGenerales.RutaArchivosProducto;
-                string carpetaEliminados = DatosGenerales.CarpetaFotosProductoEliminadas;
-                string rutaOrigenCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreFotoProducto);
-                string rutaDestinoCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), carpetaEliminados, nombreFotoProducto);
-                System.IO.File.Move(rutaOrigenCompletaArchivo, rutaDestinoCompletaArchivo);
-            }
-            return RedirectToAction("Index");
-        }
     }
 }

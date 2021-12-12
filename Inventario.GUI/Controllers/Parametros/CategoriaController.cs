@@ -57,18 +57,18 @@ namespace Inventario.GUI.Controllers.Parametros
         public ActionResult Create()
         {
             
-            IEnumerable<ModeloProductoGUI> listado = obtenerListadoProductos();
-            ModeloProductoGUI modelo = new ModeloProductoGUI();
+            IEnumerable<ModeloCategoriaGUI> listado = obtenerListadoProductos();
+            ModeloCategoriaGUI modelo = new ModeloCategoriaGUI();
             modelo.ListaProducto = listado;
             return View(modelo);
         }
 
-        private IEnumerable<ModeloProductoGUI> obtenerListadoProductos()
+        private IEnumerable<ModeloCategoriaGUI> obtenerListadoProductos()
         {
-            ImplProductoLogica producto = new ImplProductoLogica();
-            var listaProductos = producto.ListarRegistros();
-            MapeadorProductoGUI mapeador = new MapeadorProductoGUI();
-            var listado = mapeador.MapearTipo1Tipo2(listaProductos);
+            ImplCategoriaLogica categoria = new ImplCategoriaLogica();
+            var listaCategorias = categoria.ListarRegistros();
+            MapeadorCategoriaGUI mapeador = new MapeadorCategoriaGUI();
+            var listado = mapeador.MapearTipo1Tipo2(listaCategorias);
             return listado;
         }
         // POST: Categoria/Create

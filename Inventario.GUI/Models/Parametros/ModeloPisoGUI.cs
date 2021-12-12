@@ -57,13 +57,7 @@ namespace Inventario.GUI.Models.Piso
             set { modeloEdificioGUIs = value; }
         }
 
-        private IEnumerable<ModeloPisoGUI> listaPisos;
-
-        public IEnumerable<ModeloPisoGUI> ListadoPisos
-        {
-            get { return listaPisos; }
-            set { listaPisos = value; }
-        }
+        
 
 
 

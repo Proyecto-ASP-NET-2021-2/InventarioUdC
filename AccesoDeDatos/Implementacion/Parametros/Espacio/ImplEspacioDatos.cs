@@ -19,7 +19,7 @@ namespace LogicaNegocio.Implementacion.Parametros
             {
                 int regDescartados = (paginaActual - 1) * numRegistrosPorPagina;
                 var listaDatos = (from m in bd.tb_espacio
-                                  
+                                 
                                   select m).ToList();
                 totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
@@ -29,16 +29,16 @@ namespace LogicaNegocio.Implementacion.Parametros
             return lista;
         }
 
-        public IEnumerable<PisoDbModel> ListarRegistros()
+        public IEnumerable<EspacioDbModel> ListarRegistros()
         {
-            var lista = new List<PisoDbModel>();
+            var lista = new List<EspacioDbModel>();
             using (InventarioBDEntities bd = new InventarioBDEntities())
             {
-                var listaDatos = (from m in bd.tb_piso
+                var listaDatos = (from m in bd.tb_espacio
 
                                   select m).ToList();
 
-                lista = new MapeadorPisoDatos().MapearTipo1Tipo2(listaDatos).ToList();
+                lista = new MapeadorEspacioDatos().MapearTipo1Tipo2(listaDatos).ToList();
 
             }
             return lista;
@@ -49,7 +49,7 @@ namespace LogicaNegocio.Implementacion.Parametros
             {
                 using (InventarioBDEntities bd = new InventarioBDEntities())
                 {
-                    if (bd.tb_espacio.Where(x => x.nombre.ToUpper().Equals(registro.Nombre.ToUpper())).Count() > 0)
+                    if (bd.tb_espacio.Where(x => x.id_piso.Equals(registro.Id)).Count() > 0)
                     {
                         return false;
                     }
@@ -81,7 +81,7 @@ namespace LogicaNegocio.Implementacion.Parametros
                 using (InventarioBDEntities bd = new InventarioBDEntities())
                 {
 
-                    if (bd.tb_espacio.Where(x => x.id == registro.Id).Count() == 0)
+                    if (bd.tb_espacio.Where(x => x.id == registro.IdPiso).Count() == 0)
                     {
                         return false;
                     }
@@ -120,66 +120,8 @@ namespace LogicaNegocio.Implementacion.Parametros
             }
         }
 
-        public bool EliminarRegistroFoto(int id)
-        {
-            try
-            {
-                using (InventarioBDEntities bd = new InventarioBDEntities())
-                {
-                    // verificación de la existencia de un registro con el mismo id
-                    tb_espacio registro = bd.tb_espacio.Find(id);
-                    if (registro == null)
-                    {
-                        return false;
-                    }
-                    //registro.estado = false;
+       
 
-                    bd.Entry(registro).State = EntityState.Modified;
-                    bd.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        public bool guardarFotoEspacio(fotoEspacioDbModel dbModel)
-        {
-            try
-            {
-                using (InventarioBDEntities bd = new InventarioBDEntities())
-                {
-                    if (bd.tb_espacio.Where(x => x.id == dbModel.IdPiso).Count() > 0)
-                    {
-                        MapeadorFotoEspacioDatos mapeador = new MapeadorFotoEspacioDatos();
-                        tb_espacio foto = mapeador.MapearTipo2Tipo1(dbModel);
-                        bd.tb_espacio.Add(foto);
-                        bd.SaveChanges();
-                        return true;
-                    }
-                    return false;
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-        }
-        public IEnumerable<fotoEspacioDbModel> ListarEspacioPisosPorId(int id)
-        {
-            using (InventarioBDEntities bd = new InventarioBDEntities())
-            {
-                //var lista = bd.tb_espacios.Where(x => x.id_vehiculo == id).ToList();
-                var lista = (from f in bd.tb_espacio
-                            
-                             select f).ToList();
-                MapeadorFotoEspacioDatos mapeador = new MapeadorFotoEspacioDatos();
-                IEnumerable<fotoEspacioDbModel> listaDbModel = mapeador.MapearTipo1Tipo2(lista);
-                return listaDbModel;
-            }
-        }
+       
     }
 }

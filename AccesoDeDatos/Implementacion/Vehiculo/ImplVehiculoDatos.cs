@@ -164,7 +164,7 @@ namespace AccesoDeDatos.Implementacion.Producto
                     {
                         return false;
                     }
-                    registro.id = id;
+                    //registro.id = false;
                     bd.Entry(registro).State = EntityState.Modified;
                     bd.SaveChanges();
                     return true;

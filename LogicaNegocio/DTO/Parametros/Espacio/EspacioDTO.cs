@@ -38,5 +38,9 @@ namespace LogicaNegocio.DTO.Parametros
             get { return nombrePiso; }
             set { nombrePiso = value; }
         }
+
+        
+
+
     }
 }

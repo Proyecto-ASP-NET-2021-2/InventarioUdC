@@ -1,18 +1,18 @@
 ﻿@model Inventario.GUI.Models.Parametros.ModeloCargaImagenProducto
 <style type="text/css">
-    .fotoFotoTh {
+    .fotoProductoTh {
         width: 100px;
         height: 100px;
         border: 2px double #808080;
     }
 
-    .fotoFoto {
+    .fotoProducto {
         width: 200px;
         height: 200px;
         border: 2px double #808080;
     }
 
-    .divFotoFoto {
+    .divFotoProducto {
         margin-top: 5%;
         margin-right: 1%;
         float: left;
@@ -50,9 +50,9 @@
 
 @foreach (var f in Model.ListadoImagenesProducto)
 {
-    <div class="divFotoFoto">
+    <div class="divFotoProducto">
         <div>
-            <img src="@Model.RutaImagenProducto/@f.NombreFoto" class="fotoFoto" />
+            <img src="@Model.RutaImagenProducto/@f.NombreFoto" class="fotoProducto" />
         </div>
         <div>
             <button type="button" class="btn btn-primary" onclick="confirmarEliminacionFoto(@f.Id, '@f.NombreFoto')">
@@ -75,9 +75,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img src="" id="fotoPorEliminar" class="fotoFotoTh" />
+                <img src="" id="fotoPorEliminar" class="fotoProductoTh" />
             </div>
-            @using (Html.BeginForm("EliminarFoto", "Foto", FormMethod.Post))
+            @using (Html.BeginForm("EliminarFoto", "Producto", FormMethod.Post))
             {
                 <input type="hidden" id="idFotoProducto" name="idFotoProducto" />
                 <input type="hidden" id="nombreFotoProducto" name="nombreFotoProducto" />
@@ -94,8 +94,8 @@
     function confirmarEliminacionFoto(idFoto, nombreFoto) {
         let rutaFoto = `@Model.RutaImagenProducto/${nombreFoto}`;
         $("#fotoPorEliminar").attr("src", rutaFoto);
-        $("#idFotoFoto").val(idFoto);
-        $("#nombreFotoFoto").val(nombreFoto);
-        $('#modalEliminarFotoFoto').modal('toggle');
+        $("#idFotoProducto").val(idFoto);
+        $("#nombreFotoProducto").val(nombreFoto);
+        $('#modalEliminarFotoProducto').modal('toggle');
     }
 </script>

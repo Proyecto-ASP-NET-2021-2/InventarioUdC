@@ -31,6 +31,13 @@ namespace Inventario.GUI.Models.Parametros
             set { nombreFoto = value; }
         }
 
+        private IEnumerable<ModeloFotoProductoGUI> listadoImagenesProducto;
+
+        public IEnumerable<ModeloFotoProductoGUI> ListadoImagenesProducto
+        {
+            get { return listadoImagenesProducto; }
+            set { listadoImagenesProducto = value; }
+        }
 
     }
 }

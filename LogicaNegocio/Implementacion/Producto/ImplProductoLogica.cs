@@ -102,6 +102,7 @@ namespace LogicaNegocio.Implementacion.Producto
             IEnumerable<fotosProductoDTO> lista = mapeador.MapearTipo1Tipo2(listaDbModel);
             return lista;
         }
-        
+       
+
     }
 }

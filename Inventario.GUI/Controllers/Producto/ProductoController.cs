@@ -185,7 +185,13 @@ namespace Inventario.GUI.Controllers.Producto
         [HttpGet]
         public ActionResult UploadFile(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ModeloCargaImagenProducto modelo = CrearModeloCargarImagenProducto(id);
+            return View(modelo);
+          
         }
 
         private ModeloCargaImagenProducto CrearModeloCargarImagenProducto(int? id)
@@ -200,35 +206,44 @@ namespace Inventario.GUI.Controllers.Producto
             ModeloCargaImagenProducto modelo = new ModeloCargaImagenProducto()
             {
                 Id = id.Value,
-                ListadoImagenesProducto = (IEnumerable<ModeloFotoProductoGUI>)listaProducto
+                ListadoImagenesProducto = listaProducto
             };
             return modelo;
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult UploadFile(ModeloCargaImagenProducto modelo)
         {
             try
             {
                 if (modelo.Archivo.ContentLength > 0)
                 {
-                    DateTime ahora = DateTime.Now;
-                    string fechaNombre = String.Format("{0}_{1}_{2}_{3}_{4}_{5}", ahora.Day, ahora.Month, ahora.Year, ahora.Hour, ahora.Minute, ahora.Millisecond);
-                    string nombreArchivo = String.Concat(fechaNombre, "_", Path.GetFileName(modelo.Archivo.FileName));
-                    string rutaCarpeta = DatosGenerales.RutaArchivosProducto;
-                    string rutaCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreArchivo);
-                    modelo.Archivo.SaveAs(rutaCompletaArchivo);
-                    fotosProductoDTO dto = new fotosProductoDTO()
+                    try
                     {
-                        IdProducto = modelo.Id,
-                        NombreFoto = nombreArchivo
-                    };
+                        DateTime ahora = DateTime.Now;
+                        string fechaNombre = String.Format("{0}_{1}_{2}_{3}_{4}_{5}", ahora.Day, ahora.Month, ahora.Year, ahora.Hour, ahora.Minute, ahora.Millisecond);
+                        string nombreArchivo = String.Concat(fechaNombre, "_", Path.GetFileName(modelo.Archivo.FileName));
+                        string rutaCarpeta = DatosGenerales.RutaArchivosProducto;
+                        string rutaCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreArchivo);
+                        modelo.Archivo.SaveAs(rutaCompletaArchivo);
+                        fotosProductoDTO dto = new fotosProductoDTO()
+                        {
+                            IdProducto = modelo.Id,
+                            NombreFoto = nombreArchivo
+                        };
 
-                    //guardar nombre de archivo base de datos
-                    logica.guardarNombreFoto(dto);
-                    ModeloCargaImagenProducto modeloview = CrearModeloCargarImagenProducto(modelo.Id);
-                    ViewBag.UploadFileMessage = "Archivo cargado correctamente";
-                    return View();
+                        //guardar nombre de archivo base de datos
+                        logica.guardarNombreFoto(dto);
+                        ViewBag.UploadFileMessage = "Archivo cargado correctamente";
+                        ModeloCargaImagenProducto modeloview = CrearModeloCargarImagenProducto(modelo.Id);
+                       
+                        return View(modeloview);
+                    }
+                    catch
+                    {
+
+                    }
                 }
                 ViewBag.UploadFileMessage = "Por favor seleccione al menos un archivo a cargar";
                 return View();
@@ -239,6 +254,20 @@ namespace Inventario.GUI.Controllers.Producto
                 return View();
             }
 
+        }
+
+        public ActionResult EliminarFoto(int idFotoProducto, string nombreFotoProducto)
+        {
+            bool respuesta = logica.EliminarRegistroFoto(idFotoProducto);
+            if (respuesta)
+            {
+                string rutaCarpeta = DatosGenerales.RutaArchivosProducto;
+                string carpetaEliminados = DatosGenerales.CarpetaFotosProductoEliminadas;
+                string rutaOrigenCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), nombreFotoProducto);
+                string rutaDestinoCompletaArchivo = Path.Combine(Server.MapPath(rutaCarpeta), carpetaEliminados, nombreFotoProducto);
+                System.IO.File.Move(rutaOrigenCompletaArchivo, rutaDestinoCompletaArchivo);
+            }
+            return RedirectToAction("Index");
         }
 
 

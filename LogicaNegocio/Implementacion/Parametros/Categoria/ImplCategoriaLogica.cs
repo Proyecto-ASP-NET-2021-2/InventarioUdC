@@ -23,10 +23,10 @@ namespace LogicaNegocio.Implementacion.Parametros.Categoria
             return mapeador.MapearTipo1Tipo2(listado);
         }
         // esto va en producto
-        public IEnumerable<ProductoDTO> ListarRegistros()
+        public IEnumerable<CategoriaDTO> ListarRegistros()
         {
             var listado = this.accesoDatos.ListarRegistros();
-            MapeadorProductoLogica mapeador = new MapeadorProductoLogica();
+            MapeadorCategoriaLogica mapeador = new MapeadorCategoriaLogica();
             return mapeador.MapearTipo1Tipo2(listado);
         }
 

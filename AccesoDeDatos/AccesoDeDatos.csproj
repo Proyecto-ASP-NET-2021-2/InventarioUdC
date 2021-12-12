@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbModel\Parametros\Espacio\EspacioDbModel.cs" />
-    <Compile Include="DbModel\Parametros\Espacio\fotoEspacioDbModel.cs" />
     <Compile Include="DbModel\Parametros\Categoria\CategoriaDbModel.cs" />
     <Compile Include="DbModel\Producto\fotoProductoDbModel.cs" />
     <Compile Include="Implementacion\Parametros\Espacio\ImplEspacioDatos.cs" />
@@ -70,7 +69,6 @@
     <Compile Include="Implementacion\Vehiculo\ImplVehiculoDatos.cs" />
     <Compile Include="Mapeadores\MapeadorBaseDatos.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioDatos.cs" />
-    <Compile Include="Mapeadores\Parametros\Espacio\MapeadorFotoEspacioDatos.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorEdificioDatos.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorPisoDatos.cs" />
