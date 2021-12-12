@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
@@ -29,11 +29,31 @@
                     <li>@Html.ActionLink("Sede", "Index", "Sede")</li>
                     <li>@Html.ActionLink("Edificio", "Index", "Edificio")</li>
                     <li>@Html.ActionLink("Piso", "Index", "Piso")</li>
+                    @if (Session.Count > 0)
+                    {
+                        int userId = Int32.Parse(Session["userId"].ToString());
+                        IEnumerable<Inventario.GUI.Models.Seguridad.FormModel> list = Inventario.GUI.Helpers.Menu.GetMenuForms(userId);
+                        foreach (var menu in list)
+                        {
+                            <li><a href="@menu.Url">@menu.Name</a></li>
+                        }
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "User")</li>
+                    }
                 </ul>
             </div>
         </div>
     </div>
     <div class="container body-content">
+
+        @if (Session.Count > 0)
+        {
+            <div class="sessionBar">
+                En sesión:                <strong>@Session["username"]</strong>
+            </div>
+        }
         @RenderBody()
         <hr />
         <footer>

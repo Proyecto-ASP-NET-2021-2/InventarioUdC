@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Parametros\EdificioController.cs" />
     <Compile Include="Controllers\Parametros\PisoController.cs" />
@@ -141,15 +142,25 @@
     <Compile Include="Controllers\Parametros\TipoProductoController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
     <Compile Include="Controllers\Producto\ProductoController.cs" />
+    <Compile Include="Controllers\Seguridad\RoleController.cs" />
+    <Compile Include="Controllers\Seguridad\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensajes.cs" />
+    <Compile Include="Helpers\Menu.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorEdificioGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorPisoGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorSedeGUI.cs" />
     <Compile Include="Mapeadores\Parametros\MapeadorTipoProductoGUI.cs" />
+    <Compile Include="Mapeadores\Seguridad\FormModelMapper.cs" />
+    <Compile Include="Mapeadores\Seguridad\RoleModelMapper.cs" />
+    <Compile Include="Mapeadores\Seguridad\UserModelMapper.cs" />
+    <Compile Include="Models\Seguridad\FormModel.cs" />
+    <Compile Include="Models\Seguridad\FormsRoleModel.cs" />
+    <Compile Include="Models\Seguridad\LoginModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\Parametros\ModeloEdificioGUI.cs" />
     <Compile Include="Models\Parametros\ModeloPisoGUI.cs" />
     <Compile Include="Models\Parametros\ModeloSedeGUI.cs" />
@@ -159,6 +170,9 @@
     <Compile Include="Mapeadores\Producto\MapeadorProductoGUI.cs" />
     <Compile Include="Models\Parametros\ModeloTipoProductoGUI.cs" />
     <Compile Include="Models\Parametros\ModeloMarcaGUI.cs" />
+    <Compile Include="Models\Seguridad\RoleModel.cs" />
+    <Compile Include="Models\Seguridad\UserModel.cs" />
+    <Compile Include="Models\Seguridad\UserRoleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +246,18 @@
     <Content Include="Views\Piso\Details.cshtml" />
     <Content Include="Views\Piso\Edit.cshtml" />
     <Content Include="Views\Piso\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Logout.cshtml" />
+    <Content Include="Views\User\Roles.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Forms.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
