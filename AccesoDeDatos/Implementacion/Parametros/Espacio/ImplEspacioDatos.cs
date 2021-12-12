@@ -19,7 +19,7 @@ namespace LogicaNegocio.Implementacion.Parametros
             {
                 int regDescartados = (paginaActual - 1) * numRegistrosPorPagina;
                 var listaDatos = (from m in bd.tb_espacio
-                                 
+
                                   select m).ToList();
                 totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
@@ -81,7 +81,7 @@ namespace LogicaNegocio.Implementacion.Parametros
                 using (InventarioBDEntities bd = new InventarioBDEntities())
                 {
 
-                    if (bd.tb_espacio.Where(x => x.id == registro.IdPiso).Count() == 0)
+                    if (bd.tb_espacio.Where(x => x.id == registro.Id).Count() == 0)
                     {
                         return false;
                     }
@@ -105,7 +105,7 @@ namespace LogicaNegocio.Implementacion.Parametros
                 {
 
                     tb_espacio registro = bd.tb_espacio.Find(id);
-                    if (registro == null || registro.tb_piso.tb_espacio.Count() > 0)
+                    if (registro == null)
                     {
                         return false;
                     }

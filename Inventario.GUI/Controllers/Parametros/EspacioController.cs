@@ -114,6 +114,7 @@ namespace Inventario.GUI.Controllers.Parametros
             }
             MapeadorEspacioGUI mapper = new MapeadorEspacioGUI();
             ModeloEspacioGUI modelo = mapper.MapearTipo1Tipo2(EspacioDTO);
+            ObtenerListadoPiso(modelo);
             return View(modelo);
         }
 
