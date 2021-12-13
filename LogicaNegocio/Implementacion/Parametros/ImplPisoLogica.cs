@@ -1,5 +1,5 @@
 ﻿using AccesoDeDatos.DbModel.Piso;
-using AccesoDeDatos.Implementacion.Piso;
+using AccesoDeDatos.Implementacion.Parametros;
 using LogicaNegocio.DTO.Piso;
 using LogicaNegocio.Mapeadores.Piso;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaNegocio.Implementacion.Piso
+namespace LogicaNegocio.Implementacion.Parametros
 {
     public class ImplPisoLogica
     {

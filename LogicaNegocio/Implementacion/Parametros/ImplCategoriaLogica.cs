@@ -7,7 +7,7 @@ using LogicaNegocio.Mapeadores.Producto;
 using System;
 using System.Collections.Generic;
 
-namespace LogicaNegocio.Implementacion.Parametros.Categoria
+namespace LogicaNegocio.Implementacion.Parametros
 {
     public class ImplCategoriaLogica
     {

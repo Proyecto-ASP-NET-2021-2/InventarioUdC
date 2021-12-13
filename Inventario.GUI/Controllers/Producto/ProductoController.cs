@@ -1,5 +1,7 @@
 ﻿using Inventario.GUI.Helpers;
 using Inventario.GUI.Mapeadores.Parametros;
+using Inventario.GUI.Mapeadores.Parametros.Categoria;
+using Inventario.GUI.Mapeadores.Parametros.Espacio;
 using Inventario.GUI.Mapeadores.Producto;
 using Inventario.GUI.Models.Parametros;
 using Inventario.GUI.Models.Producto;
@@ -59,13 +61,35 @@ namespace Inventario.GUI.Controllers.Producto
         {
             IEnumerable<ModeloMarcaGUI> listadoMarcas = obtenerListadoMarcas();
             IEnumerable<ModeloTipoProductoGUI> listadoTipoProductos = obtenerListadoTipoProductos();
+            IEnumerable<ModeloCategoriaGUI> listadoCategorias = obtenerListadoCategorias();
+            IEnumerable<ModeloEspacioGUI> listadoEspacios = obtenerListadoEspacios();
 
             ModeloProductoGUI modelo = new ModeloProductoGUI();
             modelo.ListaMarca = listadoMarcas;
             modelo.ListaTipoProducto = listadoTipoProductos;
+            modelo.ListaCategoria = listadoCategorias;
+            modelo.ListaEspacio = listadoEspacios;
 
             return View(modelo);
 
+        }
+
+        private IEnumerable<ModeloCategoriaGUI> obtenerListadoCategorias()
+        {
+            ImplCategoriaLogica categoria = new ImplCategoriaLogica();
+            var listaCategorias = categoria.ListarRegistros();
+            MapeadorCategoriaGUI mapeador = new MapeadorCategoriaGUI();
+            var listado = mapeador.MapearTipo1Tipo2(listaCategorias);
+            return listado;
+        }
+
+        private IEnumerable<ModeloEspacioGUI> obtenerListadoEspacios()
+        {
+            ImplEspacioLogica espacio = new ImplEspacioLogica();
+            var listaEspacios = espacio.ListarRegistros();
+            MapeadorEspacioGUI mapeador = new MapeadorEspacioGUI();
+            var listado = mapeador.MapearTipo1Tipo2(listaEspacios);
+            return listado;
         }
 
         private IEnumerable<ModeloMarcaGUI> obtenerListadoMarcas()

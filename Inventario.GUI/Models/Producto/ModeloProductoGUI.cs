@@ -156,14 +156,30 @@ namespace Inventario.GUI.Models.Producto
             set { listaTipoProducto = value; }
         }
 
-        private IEnumerable<ModeloProductoGUI> listaProducto;
+        private IEnumerable<ModeloCategoriaGUI> listaCategoria;
 
-        public IEnumerable<ModeloProductoGUI> ListaProducto
+        public IEnumerable<ModeloCategoriaGUI> ListaCategoria
         {
-            get { return listaProducto; }
-            set { listaProducto = value; }
+            get { return listaCategoria; }
+            set { listaCategoria = value; }
         }
 
+        private IEnumerable<ModeloEspacioGUI> listaEspacio;
+
+        public IEnumerable<ModeloEspacioGUI> ListaEspacio
+        {
+            get { return listaEspacio; }
+            set { listaEspacio = value; }
+        }
+        /*
+        private IEnumerable<ModeloPersonaGUI> listaPersona;
+
+        public IEnumerable<ModeloPersonaGUI> ListaPersona
+        {
+            get { return listaPersona; }
+            set { listaPersona = value; }
+        }
+        */
 
     }
 }

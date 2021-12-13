@@ -6,13 +6,13 @@ using System.Collections.Generic;
 
 using System.IO;
 using PagedList;
-using LogicaNegocio.Implementacion.Parametros.Espacio;
+using LogicaNegocio.Implementacion.Parametros;
 using Inventario.GUI.Mapeadores.Parametros.Espacio;
 using LogicaNegocio.DTO.Parametros;
-using LogicaNegocio.Implementacion.Parametros;
+
 using Inventario.GUI.Helpers;
 using Inventario.GUI.Models.Piso;
-using LogicaNegocio.Implementacion.Piso;
+
 using Inventario.GUI.Mapeadores.Piso;
 using LogicaNegocio.DTO.Piso;
 

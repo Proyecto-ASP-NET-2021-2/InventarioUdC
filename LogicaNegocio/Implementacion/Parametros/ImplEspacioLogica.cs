@@ -1,12 +1,13 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.Implementacion.Parametros;
 using LogicaNegocio.DTO.Parametros;
-using LogicaNegocio.DTO.Piso;
+
 using LogicaNegocio.Mapeadores.Parametros;
-using LogicaNegocio.Mapeadores.Piso;
+
 using System;
 using System.Collections.Generic;
 
-namespace LogicaNegocio.Implementacion.Parametros.Espacio
+namespace LogicaNegocio.Implementacion.Parametros
 {
     public class ImplEspacioLogica
     {

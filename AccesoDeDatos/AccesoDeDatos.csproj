@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbModel\Parametros\Espacio\EspacioDbModel.cs" />
-    <Compile Include="DbModel\Parametros\Categoria\CategoriaDbModel.cs" />
+    <Compile Include="DbModel\Parametros\EspacioDbModel.cs" />
+    <Compile Include="DbModel\CategoriaDbModel.cs" />
     <Compile Include="DbModel\Producto\fotoProductoDbModel.cs" />
-    <Compile Include="Implementacion\Parametros\Espacio\ImplEspacioDatos.cs" />
-    <Compile Include="Implementacion\Parametros\Categoria\ImplCategoriaDatos.cs" />
+    <Compile Include="Implementacion\Parametros\ImplEspacioDatos.cs" />
+    <Compile Include="Implementacion\Parametros\ImplCategoriaDatos.cs" />
     <Compile Include="DbModel\Parametros\EdificioDbModel.cs" />
     <Compile Include="DbModel\Parametros\PisoDbModel.cs" />
     <Compile Include="DbModel\Parametros\SedeDbModel.cs" />

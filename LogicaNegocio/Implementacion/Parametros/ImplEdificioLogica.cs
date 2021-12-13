@@ -1,5 +1,6 @@
 ﻿using AccesoDeDatos.DbModel.Edificio;
-using AccesoDeDatos.Implementacion.Edificio;
+using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.Implementacion.Parametros;
 using LogicaNegocio.DTO.Edificio;
 using LogicaNegocio.Mapeadores.Edificio;
 using System;
@@ -8,7 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicaNegocio.Implementacion.Edificio
+namespace LogicaNegocio.Implementacion.Parametros
+
 {
     public class ImplEdificioLogica
     {

@@ -44,8 +44,8 @@
     <Compile Include="DTO\Parametros\Espacio\EspacioDTO.cs" />
     <Compile Include="DTO\Parametros\Categoria\CategoriaDTO.cs" />
     <Compile Include="DTO\Producto\fotosProductoDTO.cs" />
-    <Compile Include="Implementacion\Parametros\Espacio\ImplEspacioLogica.cs" />
-    <Compile Include="Implementacion\Parametros\Categoria\ImplCategoriaLogica.cs" />
+    <Compile Include="Implementacion\Parametros\ImplEspacioLogica.cs" />
+    <Compile Include="Implementacion\Parametros\ImplCategoriaLogica.cs" />
     <Compile Include="DTO\Parametros\EdificioDTO.cs" />
     <Compile Include="DTO\Parametros\PisoDTO.cs" />
     <Compile Include="DTO\Parametros\SedeDTO.cs" />

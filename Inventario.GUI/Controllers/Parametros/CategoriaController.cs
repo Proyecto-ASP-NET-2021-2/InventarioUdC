@@ -7,7 +7,7 @@ using Inventario.GUI.Models.Parametros;
 using Inventario.GUI.Models.Producto;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.Implementacion.Parametros;
-using LogicaNegocio.Implementacion.Parametros.Categoria;
+
 using LogicaNegocio.Implementacion.Producto;
 using PagedList;
 using System;

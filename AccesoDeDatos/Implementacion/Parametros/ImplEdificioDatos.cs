@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccesoDeDatos.Implementacion.Edificio
+namespace AccesoDeDatos.Implementacion.Parametros
 {
     public class ImplEdificioDatos
     {

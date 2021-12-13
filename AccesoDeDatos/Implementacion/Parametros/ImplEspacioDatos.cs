@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace LogicaNegocio.Implementacion.Parametros
+namespace AccesoDeDatos.Implementacion.Parametros
 {
     public class ImplEspacioDatos
     {
