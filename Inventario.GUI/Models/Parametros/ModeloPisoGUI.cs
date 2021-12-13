@@ -57,6 +57,8 @@ namespace Inventario.GUI.Models.Parametros
             set { modeloEdificioGUIs = value; }
         }
 
+        
+
 
 
     }

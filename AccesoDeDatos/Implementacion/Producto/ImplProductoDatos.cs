@@ -1,5 +1,7 @@
-﻿using AccesoDeDatos.DbModel.Producto;
+﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.DbModel.Producto;
 using AccesoDeDatos.Mapeadores.Producto;
+using AccesoDeDatos.Mapeadores.Vehiculo;
 using AccesoDeDatos.ModeloDeDatos;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,21 @@ namespace AccesoDeDatos.Implementacion.Producto
                 totalRegistros = listaDatos.Count();
                 listaDatos = listaDatos.OrderBy(m => m.id).Skip(regDescartados).Take(numRegistrosPorPagina).ToList();
                 lista = new MapeadorProductoDatos().MapearTipo1Tipo2(listaDatos).ToList();
+            }
+            return lista;
+        }
+
+        public IEnumerable<ProductoDbModel> ListarRegistros()
+        {
+            var lista = new List<ProductoDbModel>();
+            using (InventarioBDEntities bd = new InventarioBDEntities())
+            {
+                var listaDatos = (from m in bd.tb_producto
+
+                                  select m).ToList();
+
+                lista = new MapeadorProductoDatos().MapearTipo1Tipo2(listaDatos).ToList();
+
             }
             return lista;
         }
@@ -134,7 +151,7 @@ namespace AccesoDeDatos.Implementacion.Producto
             }
         }
 
-        /*
+        
         public bool EliminarRegistroFoto(int id)
         {
             try
@@ -147,7 +164,7 @@ namespace AccesoDeDatos.Implementacion.Producto
                     {
                         return false;
                     }
-                    registro.estado = false;
+                    //registro.id = false;
                     bd.Entry(registro).State = EntityState.Modified;
                     bd.SaveChanges();
                     return true;
@@ -159,7 +176,7 @@ namespace AccesoDeDatos.Implementacion.Producto
             }
         }
 
-        public bool GuardarFotoProducto(FotoProductoDbModel dbModel)
+        public bool GuardarFotoProducto(fotoProductoDbModel dbModel)
         {
             try
             {
@@ -167,7 +184,7 @@ namespace AccesoDeDatos.Implementacion.Producto
                 {
                     if (bd.tb_producto.Where(x => x.id == dbModel.IdProducto).Count() > 0)
                     {
-                        MapeadorFotoProductoDatos mapeador = new MapeadorFotoProductoDatos();
+                        MapeadorFotoProductosDatos mapeador = new MapeadorFotoProductosDatos();
                         tb_foto foto = mapeador.MapearTipo2Tipo1(dbModel);
                         bd.tb_foto.Add(foto);
                         bd.SaveChanges();
@@ -182,20 +199,20 @@ namespace AccesoDeDatos.Implementacion.Producto
             }
         }
 
-        public IEnumerable<FotoProductoDbModel> ListarFotosProductoPorId(int id)
+        public IEnumerable<fotoProductoDbModel> ListarFotosProductoPorId(int id)
         {
             using(InventarioBDEntities bd = new InventarioBDEntities())
             {
                 //var lista = bd.tb_foto.Where(x => x.id_vehiculo == id).ToList();
                 var lista = (from f in bd.tb_foto
-                              where f.id_vehiculo == id && f.estado
+                              where f.id_producto == id
                               select f).ToList();
-                MapeadorFotoProductoDatos mapeador = new MapeadorFotoProductoDatos();
-                IEnumerable<FotoProductoDbModel> listaDbModel = mapeador.MapearTipo1Tipo2(lista);
+                MapeadorFotoProductosDatos mapeador = new MapeadorFotoProductosDatos();
+                IEnumerable<fotoProductoDbModel> listaDbModel = mapeador.MapearTipo1Tipo2(lista);
                 return listaDbModel;
             }
         }
-        */
+        
 
     }
 }

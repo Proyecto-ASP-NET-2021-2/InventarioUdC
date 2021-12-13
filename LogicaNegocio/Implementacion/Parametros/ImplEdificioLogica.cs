@@ -1,4 +1,5 @@
-﻿using AccesoDeDatos.DbModel.Parametros;
+﻿using AccesoDeDatos.DbModel.Edificio;
+using AccesoDeDatos.DbModel.Parametros;
 using AccesoDeDatos.Implementacion.Parametros;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.Mapeadores.Parametros;

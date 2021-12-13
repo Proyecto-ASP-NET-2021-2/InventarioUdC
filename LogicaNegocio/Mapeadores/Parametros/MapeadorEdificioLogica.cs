@@ -1,4 +1,5 @@
-﻿using AccesoDeDatos.DbModel.Parametros;
+﻿using AccesoDeDatos.DbModel.Edificio;
+using AccesoDeDatos.DbModel.Parametros;
 using AccesoDeDatos.ModeloDeDatos;
 using LogicaNegocio.DTO.Parametros;
 using System.Collections.Generic;

@@ -1,4 +1,5 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.DbModel.Piso;
 using AccesoDeDatos.Implementacion.Parametros;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.Mapeadores.Parametros;
@@ -31,6 +32,13 @@ namespace LogicaNegocio.Implementacion.Parametros
             //int totalRegistrosLogica = 0;
             var listado = this.accesoDatos.ListarRegistros(filtro, numPagina, registrosPorPagina, out totalRegistros);
             //totalRegistros = totalRegistrosLogica;
+            MapeadorPisoLogica mapeador = new MapeadorPisoLogica();
+            return mapeador.MapearTipo1Tipo2(listado);
+        }
+
+        public IEnumerable<PisoDTO> ListarRegistros()
+        {
+            var listado = this.accesoDatos.ListarRegistros();
             MapeadorPisoLogica mapeador = new MapeadorPisoLogica();
             return mapeador.MapearTipo1Tipo2(listado);
         }

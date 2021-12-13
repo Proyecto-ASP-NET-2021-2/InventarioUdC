@@ -1,7 +1,9 @@
 ﻿using Inventario.GUI.Helpers;
 using Inventario.GUI.Mapeadores.Parametros;
 using Inventario.GUI.Models.Parametros;
+
 using LogicaNegocio.DTO.Parametros;
+
 using LogicaNegocio.Implementacion.Parametros;
 using PagedList;
 using System;
