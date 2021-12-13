@@ -4,7 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="608bff56a5e6408490baeedd14378d4e" Name="Diagram1">
+      <Diagram DiagramId="e2622b5196b24cbca17c92d939f5b994" Name="Diagram1">
+        <EntityTypeShape EntityType="InventarioBDModel.SEC_FORM" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioBDModel.SEC_FORMS_ROLE" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioBDModel.SEC_ROLE" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioBDModel.SEC_SESSION" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioBDModel.SEC_USER" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioBDModel.SEC_USER_ROLE" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarioBDModel.tb_categoria" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarioBDModel.tb_edificio" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarioBDModel.tb_espacio" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
@@ -15,6 +21,11 @@
         <EntityTypeShape EntityType="InventarioBDModel.tb_producto" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarioBDModel.tb_sede" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="InventarioBDModel.tb_tipoProducto" Width="1.5" PointX="7.5" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="InventarioBDModel.FK__SEC_FORMS__FORM___398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioBDModel.FK__SEC_FORMS__ROLE___38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioBDModel.FK__SEC_USER___ROLEI__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioBDModel.FK_USERID_SEC_SESSION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioBDModel.FK__SEC_USER___USERI__1920BF5C" ManuallyRouted="false" />
         <AssociationConnector Association="InventarioBDModel.FK__tb_produc__id_ca__239E4DCF" ManuallyRouted="false" />
         <AssociationConnector Association="InventarioBDModel.FK__tb_edific__id_se__182C9B23" ManuallyRouted="false" />
         <AssociationConnector Association="InventarioBDModel.FK__tb_piso__id_edif__1B0907CE" ManuallyRouted="false" />
