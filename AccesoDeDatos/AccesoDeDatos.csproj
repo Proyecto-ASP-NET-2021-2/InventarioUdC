@@ -92,6 +92,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloInventario.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ModeloDeDatos\SEC_FORM.cs">
+      <DependentUpon>ModeloInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDeDatos\SEC_FORMS_ROLE.cs">
+      <DependentUpon>ModeloInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDeDatos\SEC_ROLE.cs">
+      <DependentUpon>ModeloInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDeDatos\SEC_SESSION.cs">
+      <DependentUpon>ModeloInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDeDatos\SEC_USER.cs">
+      <DependentUpon>ModeloInventario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDeDatos\SEC_USER_ROLE.cs">
+      <DependentUpon>ModeloInventario.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModeloDeDatos\tb_categoria.cs">
       <DependentUpon>ModeloInventario.tt</DependentUpon>
     </Compile>
@@ -125,23 +143,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="ModeloDeDatos\ModeloInventario.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloInventario.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="ModeloDeDatos\ModeloInventario.edmx.diagram">
       <DependentUpon>ModeloInventario.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ModeloDeDatos\ModeloInventario.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModeloInventario.Context.cs</LastGenOutput>
       <DependentUpon>ModeloInventario.edmx</DependentUpon>
+      <LastGenOutput>ModeloInventario.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModeloDeDatos\ModeloInventario.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -149,9 +168,5 @@
       <LastGenOutput>ModeloInventario.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

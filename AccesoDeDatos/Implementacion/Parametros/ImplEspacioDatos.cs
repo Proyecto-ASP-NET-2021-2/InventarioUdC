@@ -1,7 +1,5 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
-using AccesoDeDatos.DbModel.Piso;
 using AccesoDeDatos.Mapeadores.Parametros;
-using AccesoDeDatos.Mapeadores.Piso;
 using AccesoDeDatos.ModeloDeDatos;
 using System;
 using System.Collections.Generic;

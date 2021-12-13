@@ -25,6 +25,12 @@ namespace AccesoDeDatos.ModeloDeDatos
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<SEC_FORM> SEC_FORM { get; set; }
+        public virtual DbSet<SEC_FORMS_ROLE> SEC_FORMS_ROLE { get; set; }
+        public virtual DbSet<SEC_ROLE> SEC_ROLE { get; set; }
+        public virtual DbSet<SEC_SESSION> SEC_SESSION { get; set; }
+        public virtual DbSet<SEC_USER> SEC_USER { get; set; }
+        public virtual DbSet<SEC_USER_ROLE> SEC_USER_ROLE { get; set; }
         public virtual DbSet<tb_categoria> tb_categoria { get; set; }
         public virtual DbSet<tb_edificio> tb_edificio { get; set; }
         public virtual DbSet<tb_espacio> tb_espacio { get; set; }
