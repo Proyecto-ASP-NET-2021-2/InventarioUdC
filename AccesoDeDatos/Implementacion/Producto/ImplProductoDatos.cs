@@ -1,7 +1,6 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
 using AccesoDeDatos.DbModel.Producto;
 using AccesoDeDatos.Mapeadores.Producto;
-using AccesoDeDatos.Mapeadores.Vehiculo;
 using AccesoDeDatos.ModeloDeDatos;
 using System;
 using System.Collections.Generic;

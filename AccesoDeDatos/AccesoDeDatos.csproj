@@ -152,6 +152,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
@@ -159,19 +160,19 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloInventario.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="ModeloDeDatos\ModeloInventario.edmx.diagram">
       <DependentUpon>ModeloInventario.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ModeloDeDatos\ModeloInventario.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModeloInventario.Context.cs</LastGenOutput>
       <DependentUpon>ModeloInventario.edmx</DependentUpon>
+      <LastGenOutput>ModeloInventario.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModeloDeDatos\ModeloInventario.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
