@@ -42,7 +42,7 @@ namespace Inventario.GUI.Models.Parametros
             set { nombrePiso = value; }
         }
 
-        //aqui hay que reemplazar ModelCategoriaGUI por ModeloPisosGUI
+
         private IEnumerable<ModeloPisoGUI> listaPisos;
 
         public IEnumerable<ModeloPisoGUI> ListaPisos
