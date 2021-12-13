@@ -160,7 +160,7 @@
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaGUI.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorFotosProductoGUI.cs" />
     <Compile Include="Models\Parametros\ModeloCargaImagenProducto.cs" />
-    <Compile Include="Models\Parametros\Espacio\ModeloEspacioGUI.cs" />
+    <Compile Include="Models\Parametros\ModeloEspacioGUI.cs" />
     <Compile Include="Models\Parametros\ModeloCategoriaGUI.cs" />
     <Compile Include="Helpers\DatosGenerales.cs" />
     <Compile Include="Helpers\Mensajes.cs" />
