@@ -1,4 +1,5 @@
 ﻿using Inventario.GUI.Models.Parametros;
+using Inventario.GUI.Models.Producto;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.DTO.Producto;
 using System;

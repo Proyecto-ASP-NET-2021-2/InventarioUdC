@@ -294,6 +294,30 @@ namespace Inventario.GUI.Controllers.Producto
             return RedirectToAction("Index");
         }
 
+        public FileStreamResult Print()
+        {
+            DateTime hoy = DateTime.Now;
+            string fecha_creacion = String.Format("{0}_{1}_{2}_{3}", hoy.Day, hoy.Hour, hoy.Minute, hoy.Millisecond);
+            string nombre_archivo = String.Concat("Productos_", fecha_creacion, ".pdf");
+            string ruta = Server.MapPath("~/pdfReports/Productos/" + nombre_archivo);
+            MapeadorProductoGUI mapeador = new MapeadorProductoGUI();
+            IEnumerable<ModeloProductoGUI> listaDatos = mapeador.MapearTipo1Tipo2(logica.ListarRegistros());
+            FabricaArchivosPDF fabrica = new FabricaArchivosPDF();
+            bool archivoCreado = fabrica.CrearListadoDeProductosEnPDF(ruta, "Listado de Productos", listaDatos);
 
+            if (archivoCreado)
+            {
+                var fileStream = new FileStream(ruta,
+                                    FileMode.Open,
+                                    FileAccess.Read
+                                  );
+                var fsResult = new FileStreamResult(fileStream, "application/pdf");
+                return fsResult;
+            }
+            else
+            {
+                throw new Exception("Error leyendo el archivo");
+            }
+        }
     }
 }

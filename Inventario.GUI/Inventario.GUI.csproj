@@ -159,7 +159,7 @@
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaGUI.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorFotosProductoGUI.cs" />
-    <Compile Include="Models\Parametros\ModeloCargaImagenProducto.cs" />
+    <Compile Include="Models\Producto\ModeloCargaImagenProducto.cs" />
     <Compile Include="Models\Parametros\ModeloEspacioGUI.cs" />
     <Compile Include="Models\Parametros\ModeloCategoriaGUI.cs" />
     <Compile Include="Helpers\DatosGenerales.cs" />
@@ -289,6 +289,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="pdfReports\Productos\" />
     <Folder Include="UploadFiles\FotosProducto\Eliminados\" />
   </ItemGroup>
   <ItemGroup>

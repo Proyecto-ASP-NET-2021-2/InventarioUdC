@@ -23,7 +23,7 @@ namespace Inventario.GUI.Helpers
                 doc.Open();
                 doc.Add(new Paragraph(new Phrase(titulo)));
                 doc.Add(new Paragraph(new Phrase("")));
-                doc.AddAuthor("Pepito Pérez");
+                doc.AddAuthor("Grupo 3 .Net");
                 doc.AddCreationDate();
                 doc.AddLanguage("ES");
 
