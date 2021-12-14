@@ -15,12 +15,12 @@ namespace LogicaNegocio.Mapeadores.Producto
                 Nombre = entrada.Nombre,
                 FechaRegistro = entrada.FechaRegistro,
                 Serial=entrada.Serial,
-                IdMarca=entrada.IdMarca,
-                IdCategoria=entrada.IdCategoria,
-                IdFoto=entrada.IdFoto,
-                IdTipoProducto=entrada.IdTipoProducto,
-                IdEspacio=entrada.IdEspacio,
-                IdPersona=entrada.IdPersona
+                NombreMarca=entrada.NombreMarca,
+                NombreCategoria = entrada.NombreCategoria,
+                IdFoto = entrada.IdFoto,
+                NombreTipoProducto = entrada.NombreTipoProducto,
+                NombreEspacio = entrada.NombreEspacio,
+                NombrePersona = entrada.NombrePersona
             };
         }
 
@@ -40,12 +40,12 @@ namespace LogicaNegocio.Mapeadores.Producto
                 Nombre = entrada.Nombre,
                 FechaRegistro = entrada.FechaRegistro,
                 Serial = entrada.Serial,
-                IdMarca = entrada.IdMarca,
-                IdCategoria = entrada.IdCategoria,
+                NombreMarca = entrada.NombreMarca,
+                NombreCategoria = entrada.NombreCategoria,
                 IdFoto = entrada.IdFoto,
-                IdTipoProducto = entrada.IdTipoProducto,
-                IdEspacio = entrada.IdEspacio,
-                IdPersona = entrada.IdPersona
+                NombreTipoProducto = entrada.NombreTipoProducto,
+                NombreEspacio = entrada.NombreEspacio,
+                NombrePersona = entrada.NombrePersona
             };
         }
 

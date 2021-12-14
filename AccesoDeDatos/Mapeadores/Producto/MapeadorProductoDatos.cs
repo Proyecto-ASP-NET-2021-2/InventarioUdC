@@ -16,10 +16,15 @@ namespace AccesoDeDatos.Mapeadores.Producto
                 FechaRegistro = entrada.fechaRegistro,
                 Serial = entrada.serial,
                 IdMarca = entrada.id_marca,
+                NombreMarca = entrada.tb_marca.nombre,
                 IdCategoria = entrada.id_categoria,
+                NombreCategoria = entrada.tb_categoria.nombre,
                 IdTipoProducto = entrada.id_tipoProducto,
+                NombreTipoProducto = entrada.tb_tipoProducto.nombre,
                 IdEspacio = entrada.id_espacio,
-                IdPersona = entrada.id_persona
+                NombreEspacio = entrada.tb_espacio.nombre,
+                IdPersona = entrada.id_persona,
+                NombrePersona = entrada.tb_persona.nombres
             };
         }
 
