@@ -90,6 +90,44 @@ namespace AccesoDeDatos.DbModel.Producto
             set { idPersona = value; }
         }
 
+        private string nombreMarca;
+
+        public string NombreMarca
+        {
+            get { return nombreMarca; }
+            set { nombreMarca = value; }
+        }
+
+        private string nombreCategoria;
+        public string NombreCategoria
+        {
+            get { return nombreCategoria; }
+            set { nombreCategoria = value; }
+        }
+
+        private string nombreTipoProducto;
+
+        public string NombreTipoProducto
+        {
+            get { return nombreTipoProducto; }
+            set { nombreTipoProducto = value; }
+        }
+
+        private string nombrePersona;
+
+        public string NombrePersona
+        {
+            get { return nombrePersona; }
+            set { nombrePersona = value; }
+        }
+
+        private string nombreEspacio;
+
+        public string NombreEspacio
+        {
+            get { return nombreEspacio; }
+            set { nombreEspacio = value; }
+        }
 
 
     }

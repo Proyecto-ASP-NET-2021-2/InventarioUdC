@@ -63,12 +63,14 @@ namespace Inventario.GUI.Controllers.Producto
             IEnumerable<ModeloTipoProductoGUI> listadoTipoProductos = obtenerListadoTipoProductos();
             IEnumerable<ModeloCategoriaGUI> listadoCategorias = obtenerListadoCategorias();
             IEnumerable<ModeloEspacioGUI> listadoEspacios = obtenerListadoEspacios();
+            IEnumerable<ModeloPersonaGUI> listadoPersonas = obtenerListadoPersonas();
 
             ModeloProductoGUI modelo = new ModeloProductoGUI();
             modelo.ListaMarca = listadoMarcas;
             modelo.ListaTipoProducto = listadoTipoProductos;
             modelo.ListaCategoria = listadoCategorias;
             modelo.ListaEspacio = listadoEspacios;
+            modelo.ListaPersona = listadoPersonas;
 
             return View(modelo);
 
@@ -109,6 +111,16 @@ namespace Inventario.GUI.Controllers.Producto
             MapeadorTipoProductoGUI mapeador = new MapeadorTipoProductoGUI();
 
             var listado = mapeador.MapearTipo1Tipo2(listaTipoProductos);
+            return listado;
+        }
+
+        private IEnumerable<ModeloPersonaGUI> obtenerListadoPersonas()
+        {
+            ImplPersonaLogica persona = new ImplPersonaLogica();
+            var listaPersonas = persona.ListarRegistros();
+            MapeadorPersonaGUI mapeador = new MapeadorPersonaGUI();
+
+            var listado = mapeador.MapearTipo1Tipo2(listaPersonas);
             return listado;
         }
 

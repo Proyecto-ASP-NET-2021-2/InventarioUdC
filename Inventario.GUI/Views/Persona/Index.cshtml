@@ -1,14 +1,13 @@
-﻿@model IEnumerable<Inventario.GUI.Models.Producto.ModeloProductoGUI>
+﻿@model IEnumerable<Inventario.GUI.Models.Parametros.ModeloPersonaGUI>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Productos</h2>
+<h2>Personas</h2>
 
 <p>
     @Html.ActionLink("Nuevo Registro", "Create", new { }, new { @class = "btn btn-success" })
-    @Html.ActionLink("Imprimir Reporte", "Print", new { }, new { @class = "btn btn-warning" })
 </p>
 <input type="text" name="txtFiltro" id="txtFiltro" />
 <button type="submit" class="btn btn-info">Filtrar</button>
@@ -18,22 +17,20 @@
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
+            @Html.DisplayNameFor(model => model.PrimerApellido)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Serial)
+            @Html.DisplayNameFor(model => model.SegundoApellido)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NombreMarca)
+            @Html.DisplayNameFor(model => model.Documento)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Celular)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NombreCategoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreTipoProducto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NombrePersona)
+            @Html.DisplayNameFor(model => model.Correo)
         </th>
 
         <th>Acciones</th>
@@ -46,22 +43,19 @@
         @Html.DisplayFor(modelItem => item.Nombre)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.FechaRegistro)
+        @Html.DisplayFor(modelItem => item.PrimerApellido)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Serial)
+        @Html.DisplayFor(modelItem => item.SegundoApellido)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.IdMarca)
+        @Html.DisplayFor(modelItem => item.Documento)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.IdCategoria)
+        @Html.DisplayFor(modelItem => item.Celular)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.IdTipoProducto)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.IdPersona)
+        @Html.DisplayFor(modelItem => item.Correo)
     </td>
 
 

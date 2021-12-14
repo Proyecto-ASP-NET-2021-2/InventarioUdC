@@ -144,6 +144,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Parametros\CategoriaController.cs" />
     <Compile Include="Controllers\Parametros\EspacioController.cs" />
+    <Compile Include="Controllers\Parametros\PersonaController.cs" />
     <Compile Include="Controllers\Parametros\TipoProductoController.cs" />
     <Compile Include="Controllers\Parametros\MarcaController.cs" />
     <Compile Include="Controllers\Producto\ProductoController.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Helpers\FabricaArchivosPDF.cs" />
     <Compile Include="Mapeadores\Parametros\Espacio\MapeadorEspacioGUI.cs" />
     <Compile Include="Mapeadores\Parametros\Categoria\MapeadorCategoriaGUI.cs" />
+    <Compile Include="Mapeadores\Parametros\MapeadorPersonaGUI.cs" />
     <Compile Include="Mapeadores\Producto\MapeadorFotosProductoGUI.cs" />
     <Compile Include="Models\Producto\ModeloCargaImagenProducto.cs" />
     <Compile Include="Models\Parametros\ModeloEspacioGUI.cs" />
@@ -172,6 +174,7 @@
     <Compile Include="Mapeadores\Seguridad\FormModelMapper.cs" />
     <Compile Include="Mapeadores\Seguridad\RoleModelMapper.cs" />
     <Compile Include="Mapeadores\Seguridad\UserModelMapper.cs" />
+    <Compile Include="Models\Parametros\ModeloPersonaGUI.cs" />
     <Compile Include="Models\Seguridad\FormModel.cs" />
     <Compile Include="Models\Seguridad\FormsRoleModel.cs" />
     <Compile Include="Models\Seguridad\LoginModel.cs" />
@@ -286,6 +289,16 @@
     <Content Include="Views\Role\Forms.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Producto\UploadFile.cshtml" />
+    <Content Include="Views\Persona\Create.cshtml" />
+    <Content Include="Views\Persona\Delete.cshtml" />
+    <Content Include="Views\Persona\Details.cshtml" />
+    <Content Include="Views\Persona\Edit.cshtml" />
+    <Content Include="Views\Persona\Index.cshtml" />
+    <Content Include="Views\Parametros\Create.cshtml" />
+    <Content Include="Views\Parametros\Delete.cshtml" />
+    <Content Include="Views\Parametros\Details.cshtml" />
+    <Content Include="Views\Parametros\Edit.cshtml" />
+    <Content Include="Views\Parametros\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
