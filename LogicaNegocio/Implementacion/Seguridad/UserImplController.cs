@@ -85,7 +85,7 @@ namespace LogicaNegocio.Implementacion.Seguridad
             var response = model.PasswordReset(email, newPassword);
             if (response == 1)
             {
-                new Notifications().SendEmail("Password Reset", "Content...", email, "test@desarrollodocente.ucaldas.edu.co");
+                new Notifications().SendEmail("Password Reset", newPassword, email, email);
             }
             return response;
         }
@@ -96,7 +96,7 @@ namespace LogicaNegocio.Implementacion.Seguridad
             var response = model.ChangePassword(currentPassword, newPassword, userId, out email);
             if (response == 1)
             {
-                new Notifications().SendEmail("Password changed", "Content...", email, "test@desarrollodocente.ucaldas.edu.co");
+                new Notifications().SendEmail("Password changed", "Content...", email, "test");
             }
             return response;
         }

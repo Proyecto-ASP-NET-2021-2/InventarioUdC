@@ -186,6 +186,7 @@
     <Compile Include="Mapeadores\Producto\MapeadorProductoGUI.cs" />
     <Compile Include="Models\Parametros\ModeloTipoProductoGUI.cs" />
     <Compile Include="Models\Parametros\ModeloMarcaGUI.cs" />
+    <Compile Include="Models\Seguridad\ResetModel.cs" />
     <Compile Include="Models\Seguridad\RoleModel.cs" />
     <Compile Include="Models\Seguridad\UserModel.cs" />
     <Compile Include="Models\Seguridad\UserRoleModel.cs" />
@@ -296,6 +297,7 @@
     <Content Include="Views\Parametros\Details.cshtml" />
     <Content Include="Views\Parametros\Edit.cshtml" />
     <Content Include="Views\Parametros\Index.cshtml" />
+    <Content Include="Views\User\Reset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

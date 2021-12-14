@@ -205,6 +205,12 @@ namespace Inventario.GUI.Controllers.Seguridad
             return View(model);
         }
 
+        public ActionResult Reset()
+        {
+          
+                return View();
+           
+        }
 
         public ActionResult Login()
         {
@@ -242,6 +248,23 @@ namespace Inventario.GUI.Controllers.Seguridad
             }
         }
 
+        [HttpPost, ActionName("Reset")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Resetp([Bind(Include = "Email")] ResetModel model)
+        {
+           
+            
+            if (capaNegocio.PasswordReset(model.Email)!=1)
+            {
+                ViewBag.ErrorMessage = "CORREO INVALIDO";
+                return View(model);
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Nueva contraseña en el correo ingresado";
+                return RedirectToAction("Index", "Home");
+            }
+        }
 
         public ActionResult Logout()
         {
