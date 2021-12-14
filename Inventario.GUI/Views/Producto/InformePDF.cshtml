@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Inventario.GUI.Models.Producto.ModeloProductoGUI>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Productos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Serial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreEspacio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreMarca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombrePersona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreTipoProducto)
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayNameFor(model => model.Nombre)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.FechaRegistro)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.Serial)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.NombreCategoria)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.IdEspacio)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.NombreMarca)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.NombrePersona)
+    </td>
+    <td>
+        @Html.DisplayNameFor(model => model.NombreTipoProducto)
+    </td>
+    
+</tr>
+    }
+
+</table>

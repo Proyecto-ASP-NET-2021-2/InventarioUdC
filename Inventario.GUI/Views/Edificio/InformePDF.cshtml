@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Inventario.GUI.Models.Parametros.ModeloEdificioGUI>
+
+
+
+<h2>Edificios</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreSede)
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreSede)
+            </td>
+
+            <td>
+              
+            </td>
+        </tr>
+    }
+
+</table>

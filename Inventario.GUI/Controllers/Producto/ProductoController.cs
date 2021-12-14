@@ -294,6 +294,24 @@ namespace Inventario.GUI.Controllers.Producto
             return RedirectToAction("Index");
         }
 
+        public ActionResult Informe()
+        {
+            return new Rotativa.ActionAsPdf("InformePDF");
+        }
+
+        public ActionResult InformePDF()
+        {
+            int numPagina =  1;
+            int totalRegistros;
+            int registrosPorPagina =100;
+            IEnumerable<ProductoDTO> listaDatos = logica.ListarRegistros("", numPagina, registrosPorPagina, out totalRegistros);
+            MapeadorProductoGUI mapper = new MapeadorProductoGUI();
+            IEnumerable<ModeloProductoGUI> listaGUI = mapper.MapearTipo1Tipo2(listaDatos);
+            //var registrosPagina = listaGUI.ToPagedList(numPagina, registrosPorPagina);
+            var listaPagina = new StaticPagedList<ModeloProductoGUI>(listaGUI, numPagina, registrosPorPagina, totalRegistros);
+            return View(listaPagina);
+        }
+
 
     }
 }

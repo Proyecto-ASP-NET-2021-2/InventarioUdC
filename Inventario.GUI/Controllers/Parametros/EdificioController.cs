@@ -26,7 +26,7 @@ namespace Inventario.GUI.Controllers.Parametros
         {
             int numPagina = page ?? 1;
             int totalRegistros;
-            int registrosPorPagina = DatosGenerales.RegistrosPorPagina;
+            int registrosPorPagina = 100;
             IEnumerable<EdificioDTO> listaDatos = logica.ListarRegistros(filtro, numPagina, registrosPorPagina, out totalRegistros);
             MapeadorEdificioGUI mapper = new MapeadorEdificioGUI();
             IEnumerable<ModeloEdificioGUI> listaGUI = mapper.MapearTipo1Tipo2(listaDatos);
@@ -162,7 +162,26 @@ namespace Inventario.GUI.Controllers.Parametros
             }
         }
 
-        
+        public ActionResult Informe()
+        {
+            return new Rotativa.ActionAsPdf("InformePDF");
+        }
+
+        public ActionResult InformePDF()
+        {
+            int numPagina = 1;
+            int totalRegistros;
+            int registrosPorPagina = 100;
+            IEnumerable<EdificioDTO> listaDatos = logica.ListarRegistros("", numPagina, registrosPorPagina, out totalRegistros);
+            MapeadorEdificioGUI mapper = new MapeadorEdificioGUI();
+            IEnumerable<ModeloEdificioGUI> listaGUI = mapper.MapearTipo1Tipo2(listaDatos);
+            //var registrosPagina = listaGUI.ToPagedList(numPagina, registrosPorPagina);
+            var listaPagina = new StaticPagedList<ModeloEdificioGUI>(listaGUI, numPagina, registrosPorPagina, totalRegistros);
+            return View(listaPagina);
+        }
+
+
+
 
     }
 }
