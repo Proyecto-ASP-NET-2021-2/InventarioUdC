@@ -24,7 +24,7 @@ namespace AccesoDeDatos.Mapeadores.Producto
                 IdEspacio = entrada.id_espacio,
                 NombreEspacio = entrada.tb_espacio.nombre,
                 IdPersona = entrada.id_persona,
-                NombrePersona = entrada.tb_persona.nombres
+                NombrePersona = entrada.tb_persona.nombres+" "+entrada.tb_persona.primer_apellido
             };
         }
 
