@@ -171,7 +171,7 @@ namespace Inventario.GUI.Models.Producto
             get { return listaEspacio; }
             set { listaEspacio = value; }
         }
-        /*
+        
         private IEnumerable<ModeloPersonaGUI> listaPersona;
 
         public IEnumerable<ModeloPersonaGUI> ListaPersona
@@ -179,7 +179,7 @@ namespace Inventario.GUI.Models.Producto
             get { return listaPersona; }
             set { listaPersona = value; }
         }
-        */
+        
 
     }
 }
