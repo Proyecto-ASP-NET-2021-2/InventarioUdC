@@ -155,8 +155,23 @@ namespace Inventario.GUI.Controllers.Producto
             {
                 return HttpNotFound();
             }
+
+            IEnumerable<ModeloMarcaGUI> listadoMarcas = obtenerListadoMarcas();
+            IEnumerable<ModeloTipoProductoGUI> listadoTipoProductos = obtenerListadoTipoProductos();
+            IEnumerable<ModeloCategoriaGUI> listadoCategorias = obtenerListadoCategorias();
+            IEnumerable<ModeloEspacioGUI> listadoEspacios = obtenerListadoEspacios();
+            IEnumerable<ModeloPersonaGUI> listadoPersonas = obtenerListadoPersonas();
+
+            
+
+
             MapeadorProductoGUI mapper = new MapeadorProductoGUI();
             ModeloProductoGUI modelo = mapper.MapearTipo1Tipo2(ProductoDTO);
+            modelo.ListaMarca = listadoMarcas;
+            modelo.ListaTipoProducto = listadoTipoProductos;
+            modelo.ListaCategoria = listadoCategorias;
+            modelo.ListaEspacio = listadoEspacios;
+            modelo.ListaPersona = listadoPersonas;
             return View(modelo);
         }
 
