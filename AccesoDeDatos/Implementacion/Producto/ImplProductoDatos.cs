@@ -204,7 +204,7 @@ namespace AccesoDeDatos.Implementacion.Producto
             {
                 //var lista = bd.tb_foto.Where(x => x.id_vehiculo == id).ToList();
                 var lista = (from f in bd.tb_foto
-                              where f.id_producto == id
+                             // where f.id_producto == id
                               select f).ToList();
                 MapeadorFotoProductosDatos mapeador = new MapeadorFotoProductosDatos();
                 IEnumerable<fotoProductoDbModel> listaDbModel = mapeador.MapearTipo1Tipo2(lista);

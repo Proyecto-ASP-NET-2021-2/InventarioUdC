@@ -1,5 +1,6 @@
 ﻿
 using Inventario.GUI.Models.Parametros;
+using Inventario.GUI.Models.Producto;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
@@ -13,7 +14,7 @@ namespace Inventario.GUI.Helpers
     public class FabricaArchivosPDF
     {
         //en lugar de modeloCategoriaGUI va modeloProductoGUI
-        public bool CrearListadoDeProductosEnPDF(string pdfpath, string titulo, IEnumerable<ModeloCategoriaGUI> listaDatos)
+        public bool CrearListadoDeProductosEnPDF(string pdfpath, string titulo, IEnumerable<ModeloProductoGUI> listaDatos)
         {
             try
             {

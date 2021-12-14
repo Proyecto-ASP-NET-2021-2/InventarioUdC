@@ -1,4 +1,5 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.DbModel.Producto;
 using LogicaNegocio.DTO.Parametros;
 using LogicaNegocio.DTO.Producto;
 using System;
