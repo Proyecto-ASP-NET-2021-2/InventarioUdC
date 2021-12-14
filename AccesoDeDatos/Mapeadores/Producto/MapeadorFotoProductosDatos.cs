@@ -1,4 +1,5 @@
 ﻿using AccesoDeDatos.DbModel.Parametros;
+using AccesoDeDatos.DbModel.Producto;
 using AccesoDeDatos.ModeloDeDatos;
 using System.Collections.Generic;
 
