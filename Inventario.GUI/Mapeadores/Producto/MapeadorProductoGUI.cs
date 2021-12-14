@@ -15,11 +15,16 @@ namespace Inventario.GUI.Mapeadores.Producto
                 FechaRegistro = entrada.FechaRegistro,
                 Serial=entrada.Serial,
                 NombreMarca=entrada.NombreMarca,
+                IdMarca=entrada.IdMarca,
                 NombreCategoria = entrada.NombreCategoria,
+                IdCategoria= entrada.IdCategoria,
                 IdFoto=entrada.IdFoto,
                 NombreTipoProducto = entrada.NombreTipoProducto,
+                IdTipoProducto=entrada.IdTipoProducto,
                 NombreEspacio = entrada.NombreEspacio,
-                NombrePersona = entrada.NombrePersona
+                IdEspacio=entrada.IdEspacio,
+                NombrePersona = entrada.NombrePersona,
+                IdPersona=entrada.IdPersona
             };
         }
 
@@ -44,7 +49,12 @@ namespace Inventario.GUI.Mapeadores.Producto
                 IdFoto = entrada.IdFoto,
                 NombreTipoProducto = entrada.NombreTipoProducto,
                 NombreEspacio = entrada.NombreEspacio,
-                NombrePersona = entrada.NombrePersona
+                NombrePersona = entrada.NombrePersona,
+                IdMarca = entrada.IdMarca,
+                IdCategoria = entrada.IdCategoria,
+                IdTipoProducto = entrada.IdTipoProducto,
+                IdEspacio = entrada.IdEspacio,
+                IdPersona = entrada.IdPersona
             };
         }
 

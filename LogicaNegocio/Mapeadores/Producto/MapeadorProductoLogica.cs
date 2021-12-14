@@ -20,7 +20,12 @@ namespace LogicaNegocio.Mapeadores.Producto
                 IdFoto = entrada.IdFoto,
                 NombreTipoProducto = entrada.NombreTipoProducto,
                 NombreEspacio = entrada.NombreEspacio,
-                NombrePersona = entrada.NombrePersona
+                NombrePersona = entrada.NombrePersona,
+                IdMarca = entrada.IdMarca,
+                IdCategoria = entrada.IdCategoria,
+                IdTipoProducto = entrada.IdTipoProducto,
+                IdEspacio = entrada.IdEspacio,
+                IdPersona = entrada.IdPersona
             };
         }
 
@@ -45,7 +50,12 @@ namespace LogicaNegocio.Mapeadores.Producto
                 IdFoto = entrada.IdFoto,
                 NombreTipoProducto = entrada.NombreTipoProducto,
                 NombreEspacio = entrada.NombreEspacio,
-                NombrePersona = entrada.NombrePersona
+                NombrePersona = entrada.NombrePersona,
+                IdMarca = entrada.IdMarca,
+                IdCategoria = entrada.IdCategoria,
+                IdTipoProducto = entrada.IdTipoProducto,
+                IdEspacio = entrada.IdEspacio,
+                IdPersona = entrada.IdPersona
             };
         }
 
